@@ -1,0 +1,98 @@
+.showTop {
+  background: url(../../assets/images/15.jpg) no-repeat center center;
+  width: 100%;
+  height: 88px;
+}
+.showTop .mainBox {
+  position: relative;
+}
+
+.showTop .mainBox .return {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  font-size: 12px;
+  color: #010103;
+  background: url(../../assets/images/return.png) left center no-repeat;
+  padding-left: 20px;
+}
+
+.worshipBg .worbox {
+  position: relative;
+  width: 466px;
+  height: 498px;
+  margin: 0 auto;
+  margin-top: 110px;
+}
+
+.worshipBg .worbox .zhu {
+  z-index: 99;
+  display: block;
+  position: absolute;
+  top: 215px;
+  left: 0;
+  width: 68px;
+  height: 144px;
+  background: url(../../assets/images/zhubg.png) no-repeat;
+}
+
+.worshipBg .worbox .zhu .la {
+  position: absolute;
+  left: -33px;
+  top: -81px;
+}
+
+.worshipBg .worbox a.more {
+  display: block;
+  width: 69px;
+  height: 213px;
+  position: absolute;
+  right: 79px;
+  bottom: 27px;
+}
+
+.worshipBg{
+  background: url(../../assets/images/jibaibg.jpg) no-repeat center center;
+  height: 807px;
+  overflow: hidden;
+}
+.worbot{
+  background: #f7f7f7;
+  height: 144px;
+  padding-top: 42px;
+}
+.worbot ul{
+  width: 750px;
+  margin: 0 auto;
+}
+.worbot ul li{
+  float: left;
+  margin-right: 35px;
+  width: 210px;
+  height: 40px;
+  line-height: 37px;
+  text-indent: 35px;
+}
+.worbot ul li a{
+  color: #fff;
+  font-size: 16px;
+  display: block;
+  background: url(../../assets/images/jibg.png) no-repeat;
+}
+.worbot ul li a:hover{
+  background-position:0 -58px ;
+}
+.worbot .number{
+  padding-top: 30px;
+  text-align: center;
+  font-size: 16px;
+  color: #a12600;
+}
+.worbot .number b{
+  font-size: 16px;
+  padding: 0px 4px;
+  color: #ffffff;
+  background: #9c4714;
+  margin: 0 5px;
+  font-weight: normal;
+}

@@ -1,0 +1,51 @@
+<archives-top [ifs]="false"></archives-top>
+  <div class="currentLocation">
+    <div class="mainBox">
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>
+          <i class="anticon anticon-home"></i>
+          <a routerLink="/propaganda"><span>数字宣教馆</span></a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          <a ><span >宣教列表</span></a>
+        </nz-breadcrumb-item>
+      </nz-breadcrumb>
+    </div>
+  </div>
+  <div class="showwrap">
+    <div class="librarylistBox" style="padding-top: 24px;">
+      <div class="mainBox">
+        <div class="tip">
+          <nz-input [nzSize]="'large'" style="width: 322px;float: left; margin-left: 8.5px;margin-top: 8.5px" [(ngModel)]="search_content" [nzPlaceHolder]="'请输入搜索内容...'" (keyup.enter)="getSelected()">
+            <ng-template #addOnBefore>
+              <nz-select style="width: 88px;"[nzPlaceHolder]="'全部'" (nzOpenChange)="getSelected()"  [(ngModel)]="type">
+                <nz-option [nzLabel]="'全部'" [nzValue]="'0'"></nz-option>
+                <nz-option [nzLabel]="'精选'" [nzValue]="'1'"></nz-option>
+                <nz-option [nzLabel]="'新增'" [nzValue]="'2'"></nz-option>
+              </nz-select>
+            </ng-template>
+            <ng-template #addOnAfter>
+              <i class="anticon anticon-search ant-input-search-icon" (click)="getSelected()"></i>
+            </ng-template>
+          </nz-input>
+        </div>
+        <div class="listbox">
+          <ul class="prolist_video clearfix">
+            <li *ngFor="let item of result">
+              <a [routerLink]="['/propaganda-detail',item.id]"  class="imgTop">
+                <img [src]="item.picurl">
+                <code></code>
+              </a>
+              <h2>{{item.title}}</h2>
+              <div class="play"> 播放次数：{{item.views}}</div>
+            </li>
+
+          </ul>
+        </div>
+        <div class="page">
+          <nz-pagination [nzPageIndex]="pageindex" [nzTotal]="pagetotal" nzShowQuickJumper [nzPageSize]="pagesize" nzShowTotal (nzPageIndexChange)="getSelected()"></nz-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+<archives-foot [imgs]="true"></archives-foot>

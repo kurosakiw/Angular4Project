@@ -1,0 +1,61 @@
+<div class="indexTop">
+  <div class="mainBox">
+    <img class="logo" [src]="picurl+'logo6.png'">
+    <div class="login" *ngIf="changeKey==true">
+      <a class="go" (click)="showModal('0','登陆')">登录</a>
+      <a class="reg" (click)="showModal('1','注册')">注册</a>
+    </div>
+    <div class="login topBtn" *ngIf="changeKey==false">
+      <a routerLink="/admin" class="admin">个人中心</a>
+    </div>
+
+  </div>
+</div>
+<div class="indexCen">
+  <div class="mainBox clearfix">
+    <ul class="indexBtn">
+      <li class="flower">
+        <p class="name animated">数字<br>档案馆</p>
+        <a routerLink="/archives"   class="go animated">点击进馆</a>
+      </li>
+      <li class="flower">
+        <p class="name animated">数字<br>图书馆</p>
+        <a routerLink="/library"   class="go animated">点击进馆</a>
+      </li>
+      <li class="flower">
+        <p class="name animated">数字<br>宣教馆</p>
+        <a routerLink="/propaganda"   class="go animated">点击进馆</a>
+      </li>
+    </ul>
+    <div class="prompt">
+      <code>关于平台</code>
+      <p>为了确保这些珍贵文献得到保护和传播，充分发挥这些文献铭记历史、珍惜和平、共创未来、捍卫人类尊严的积极作用，并最大化地发挥其宣教功能。南京出版传媒集团·南京出版社会同侵华日军南京大屠杀遇难同胞纪念馆、中国第二历史档案馆、南京大屠杀史研究会、南京大学中华民国史研究中心、南京师范大学南京大屠杀研究中心，以及日军暴行史研究会组织相关人员和专家进行调研论证，决定打造南京大屠杀数字档案馆、数字图书馆、数字宣教馆及数字出版一体化平台。</p>
+    </div>
+  </div>
+</div>
+<div class="indexFoot">
+  <div class="mainBox">
+    <h2>国家关于南京大屠杀历史资料珍藏打造的重点项目</h2>
+    <p class="number">您是第<b>{{result}}</b>位访问该平台的网友</p>
+    <span class="logo"><abbr>主管单位：</abbr><img [src]="picurl+'logo.png'" alt=""></span>
+  </div>
+</div>
+
+<nz-modal
+  [nzWidth] = "'500px'"
+  [nzVisible]="isVisible"
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  [nzFooter]="modalFooter"
+  (nzOnCancel)="handleCancel()">
+  <ng-template #modalTitle>
+    {{title}}
+  </ng-template>
+  <ng-template #modalContent>
+    <app-regist-compent *ngIf = "key=='1'" [(issucess)]="key" (succeed)="showModal('0','登陆')" ></app-regist-compent>
+    <app-login-compent *ngIf = "key=='0'" [(issucess)]="key" (succeed)="showModal('1','注册')" (landOver)="handleCancel('success')" (fogotpwd)="showModal('2','找回密码')"></app-login-compent>
+    <app-fogot-pwd-component *ngIf = "key=='2'"  [(issucess)]="key" (succeed)="showModal('0','登陆')" ></app-fogot-pwd-component>
+
+
+  </ng-template>
+</nz-modal>

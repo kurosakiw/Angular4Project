@@ -1,0 +1,98 @@
+<archives-top [ifs2]="true"></archives-top>
+<nz-spin [nzSpinning]="_isSpinning">
+  <div class="currentLocation">
+    <div class="mainBox">
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>
+          <i class="anticon anticon-home"></i>
+          <a routerLink="/public"><span>首页</span></a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          <a><span>时间线</span></a>
+        </nz-breadcrumb-item>
+      </nz-breadcrumb>
+    </div>
+  </div>
+
+  <div style="width: 100%;overflow: hidden;background: url('./assets/images/timebg.jpg')">
+  <div style="width: 1100px;margin:0 auto;padding: 24px 0px">
+
+  <nz-radio-group [(ngModel)]="nzTabPosition">
+    <label nz-radio-button [nzValue]="'top'">
+      <span>水平布局</span>
+    </label>
+    <label nz-radio-button [nzValue]="'left'">
+      <span>垂直布局</span>
+    </label>
+  </nz-radio-group>
+
+  <div style="float:right;margin-right: 24px" >
+    <nz-input-number  [(ngModel)]="selectedIndex" [nzMin]="0">
+    </nz-input-number>
+    <span> 总数:{{total}}</span>
+  </div>
+  <nz-tabset
+    style="clear: both; min-height:380px; margin-top: 24px"
+    [nzTabPosition]="nzTabPosition"
+    [(nzSelectedIndex)]="selectedIndex"
+  >
+    <nz-tab *ngFor="let tab of tabs;let i=index"  (nzSelect)="_console(tab)">
+      <ng-template #nzTabHeading>
+        {{tab}}
+      </ng-template>
+      <span>
+          <div class="content">
+            <div class="mainBox">
+              <div class="moreBox">
+                <dl class="nav">
+                  <dd [ngClass]="{'on':ids=='0'}" (click)="changeState('0')">
+                    <a>图书</a>
+                  </dd>
+                  <dd [ngClass]="{'on':ids=='1'}" (click)="changeState('1')">
+                    <a>档案</a>
+                  </dd>
+                  <dd [ngClass]="{'on':ids=='2'}" (click)="changeState('2')">
+                    <a>宣教</a>
+                  </dd>
+                </dl>
+                <div class="lists">
+                  <ul class="lis onelist clearfix">
+                    <li *ngFor="let key of links" (click)="todetail(key.id)">
+                      <a><img src="{{key.picurl}}"></a>
+                      <nz-tooltip  *ngIf="key.name&&ids=='0'" [nzTitle]="key.name" [nzPlacement]="'bottom'">
+                        <p nz-tooltip>{{key.name}}</p>
+                      </nz-tooltip>
+                      <nz-tooltip  *ngIf="key.title&&ids=='2'" [nzTitle]="key.title" [nzPlacement]="'bottom'">
+                        <p nz-tooltip>{{key.title}}</p>
+                      </nz-tooltip>
+                      <p *ngIf="key.author&&ids=='0'">作者:{{key.author}}</p>
+                      <p *ngIf="key.name && ids=='1'">{{key.name}}</p>
+                      <p *ngIf="key.title && ids=='2'">名称：{{key.title}}</p>
+                      <nz-tooltip *ngIf="key.archiveName&&ids=='1'"[nzTitle]="key.archiveName" [nzPlacement]="'bottom'">
+                        <p nz-tooltip>所属馆:{{key.archiveName}}</p>
+                      </nz-tooltip>
+                    </li>
+                    <div *ngIf = 'links.length==0' style="width:710px;height: 333px;border-radius: 10px;border: #eeeeee dashed 1px;margin-left: 41px;">
+                      <p style="text-align: center;width: 100%;line-height: 333px;font-size: 18px">
+                        暂无内容...
+                      </p>
+                    </div>
+                  </ul>
+                  <nz-pagination *ngIf = 'links.length!=0' style="float: right;padding: 12px 34px 0 0" [nzPageSize]="pagesize" [(nzPageIndex)]="pageindex" (nzPageIndexChange)="getDatas()" [nzTotal]="nztotal" nzShowQuickJumper></nz-pagination>
+                </div>
+              </div>
+            </div>
+          </div>
+      </span>
+    </nz-tab>
+  </nz-tabset>
+  </div>
+  </div>
+</nz-spin>
+<div class="indexFoot">
+  <div class="mainBox">
+    <h2>国家关于南京大屠杀历史资料珍藏打造的重点项目</h2>
+    <p class="number">您是第<b>{{result}}</b>位访问该平台的网友</p>
+    <span class="logo"><abbr>主管单位：</abbr><img [src]="picurl+'logo.png'" alt=""></span>
+  </div>
+</div>

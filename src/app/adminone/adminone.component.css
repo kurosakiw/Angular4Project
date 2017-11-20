@@ -1,0 +1,189 @@
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.ant-table-tbody a{
+  color: rgba(0, 0, 0, 0.65);
+}
+.ant-table-thead > tr > th:last-child{
+  border-right: 1px solid #efefef;
+}
+.ant-table-thead > tr > th{
+  background: #fff;
+  border: 1px solid #efefef;
+  border-right:none;
+  text-align: center;
+}
+.ant-table-tbody > tr > td{
+  border-bottom: none;
+  border-right: 1px solid #efefef;
+  text-align: center;
+}
+.ant-table-tbody > tr > td i,.toptit ul li i{
+  display: inline-block;
+  width: 19px;
+  height:9px;
+  margin-right: 5px;
+}
+.ant-table-tbody > tr > td b{
+  margin-right: 2px;
+}
+.ant-table-tbody > tr > td i.on,.toptit ul li i.on{
+  background: #ec6941;
+}
+.ant-table-tbody > tr > td i.pass,.toptit ul li i.pass{
+  background: #00a0e9;
+}
+.ant-table-tbody > tr > td i.no,.toptit ul li i.no{
+  background: #585858;
+}
+.ant-table-tbody > tr:nth-child(odd) > td{
+  background: #f6f6f6;
+  text-align: center;
+}
+.toptit{
+  height: 20px;
+  margin-bottom: 16px;
+}
+.toptit h3{
+  float: left;
+  font-weight: normal;
+  font-size: 14px;
+}
+.toptit h3 abbr{
+  color: #bf0d0d;
+}
+.toptit ul{
+  float: right;
+}
+.toptit ul li{
+  float: left;
+  margin-left: 10px;
+}
+.change-options {
+  display: inline-block;
+  font-size: 12px;
+  margin-top: 8px;
+}
+.datas{
+  width: 100%;
+  padding: 0px 24px;
+  overflow: hidden;
+}
+.datas li:nth-child(odd){
+  width: 48%;
+  float: left;
+  padding: 12px 0px;
+  padding-left: 2%;
+  background-color: #ededed;
+  margin-bottom: 12px;
+}
+.datas li:nth-child(even){
+  width: 48%;
+  float: right;
+  padding: 12px 0px;
+  padding-left: 2%;
+  background-color: #ededed;
+  margin-bottom: 12px;
+}
+.datas li p span:first-child{
+  width: 24%;
+  float: left;
+  text-align: center;
+  padding-right: 2%;
+  box-sizing: border-box;
+  border-right: #FFFFFF solid 1px;
+}
+.datas li p span:last-child{
+  width: 69%;
+  float: left;
+  text-align: left;
+  padding-left: 5%;
+}
+.oneline{
+  max-width:200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block
+}
+.fitall{
+  width: 100%;
+  overflow: hidden;
+}
+.fitall h2{
+  width: 100%;
+  background-color: #1c94c4;
+  padding: 6px 8px;
+  overflow: hidden;
+}
+.fitall h2 span{
+  float: left;
+  width: 80%;
+  text-indent: 12px;
+  color: #FFFFFF;
+}
+.fitall h2 span+span{
+  float: left;
+  width: 10%;
+  text-align: center;
+}
+.fitall h2 span:last-child{
+  float: left;
+  width: 10%;
+  text-align: center;
+}
+
+.fitall dl{
+  width: 100%;
+  height:180px;
+  overflow: auto;
+}
+.fitall dl dd{
+  overflow: hidden;
+}
+.imgcontent{
+  position: relative;
+  padding: 24px 0px;
+}
+.imgcontent .shutdown{
+   width: 30px;
+   height:30px;
+   position: absolute;
+   right: 0px;
+   top:0px;
+   z-index:999;
+   background-color: #00a0e9;
+  border-radius: 50%;
+   cursor: pointer;
+ }
+.imgcontent i{
+  position: absolute;
+  right: 0px;
+  top:0px;
+  left: 0px;
+  bottom: 0px;
+  margin: auto;
+  z-index:999;
+  font-size: 26px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,83 @@
+  <div class="showTop">
+    <div class="mainBox">
+      <a routerLink="/public"><img [src]="picurl+'logo10.png'"></a>
+      <div class="topBtn">
+        <a  routerLink="/timeLine" class="timeLine">时间线</a>
+        <a  routerLink="/worship" class="worship">网络祭拜</a>
+        <a style="width: 240px"  routerLink="/admin" class="admin">您好，{{username}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="showBanner"></div>
+  <div class="currentLocation">
+    <div class="mainBox">
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>
+          <i class="anticon anticon-home"></i>
+          <a routerLink="/public"><span>首页</span></a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          <a routerLink="/admin"><span>个人中心</span></a>
+        </nz-breadcrumb-item>
+      </nz-breadcrumb>
+    </div>
+  </div>
+  <div class="adminWrap">
+    <div class="mainBox">
+      <nz-layout class="layout">
+        <nz-content>
+          <nz-layout style="padding:24px 0; background: #fff;height: 696px">
+            <nz-sider [nzWidth]="200" style="background:#fff;border-right: 1px solid #e9e9e9">
+                  <nz-badge [nzCount]="5" style="width: 84px;margin: 13px auto 16px auto">
+                    <ng-template #content>
+                  <nz-avatar nzIcon="user" [nzShape]="'square'" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+                    </ng-template>
+                  </nz-badge>
+                  <p style="width:100%;display: block;text-align: center">{{username}} &nbsp;<a (click)="clearSession()">[退出]</a></p>
+              <ul nz-menu [nzMode]="'inline'" style="height:100%;border-right:none;margin-top: 24px ">
+                <li nz-submenu  [nzOpen]="true">
+                  <span title><i class="anticon anticon-user"></i>我的征集</span>
+                  <ul>
+                    <li routerLink="upload/1"  nz-menu-item nzSelected="true">图书</li>
+                    <li routerLink="upload/2"  nz-menu-item>档案</li>
+                  </ul>
+                </li>
+                <li nz-menu-item routerLink="info">
+                  <span>
+                    <i class="anticon anticon-solution"></i>
+                    <span class="nav-text">帐号信息</span>
+                  </span>
+                </li>
+                <li nz-menu-item  routerLink="reset">
+                  <span>
+                    <i class="anticon anticon-lock"></i>
+                    <span class="nav-text">修改密码</span>
+                  </span>
+                </li>
+              </ul>
+            </nz-sider>
+            <nz-content style="padding: 0 24px; height: 696px;">
+              <router-outlet></router-outlet>
+            </nz-content>
+          </nz-layout>
+        </nz-content>
+      </nz-layout>
+    </div>
+  </div>
+  <div class="indexFoot">
+    <div class="mainBox cc">
+      <ul class="link">
+        <li>
+          <a routerLink="/archives" class="archives"></a>
+        </li>
+        <li>
+          <a  routerLink="/library" class="library"></a>
+        </li>
+        <li>
+          <a  routerLink="/propaganda" class="propaganda"></a>
+        </li>
+      </ul>
+      <span class="logo"><abbr>主管单位：</abbr><img [src]="picurl+'logo.png'"></span>
+    </div>
+  </div>
+

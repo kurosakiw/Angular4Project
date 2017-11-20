@@ -1,0 +1,169 @@
+<nz-spin [nzSpinning]="_isSpinning">
+		<div class="wrapTop">
+			<div class="mainBox">
+				<a routerLink="/public"><img class="logo" [src]="picurl+'logo2.png'"></a>
+				<div class="topBtn">
+          <a routerLink="/timeLine" class="timeLine">时间线</a>
+          <a routerLink="/worship" class="worship">网络祭拜</a>
+          <a  *ngIf="changeKey==false" routerLink="/admin" class="admin">个人中心</a>
+          <a  *ngIf="changeKey==true" class="go" (click)="showModal('0','登陆')">登录</a>
+          <a  *ngIf="changeKey==true" class="reg" (click)="showModal('1','注册')">注册</a>
+
+
+				</div>
+				<div class="topTxt">
+					<h2>简介：</h2>
+					<p>数字档案馆是一个内容管理系统、集成系统和数字信息长期保存系统的集合。作为以电子文件、档案以及其他信息资源等非结构化数据为主要管理对象的数字档案馆，它不仅仅起到一个数据中心的作用，也不仅仅起到发布利用的作用，而是具有有序处理和集成管理的功能。它的有序处理和管理过程包括收集、创建、确认、转换、存档、管理、发布利用等涵盖文件生命周期管理实践的全过程。集成（integration）含综合、融合、整合成为整体和一体化的意思。就数字档案馆而言，就是将集成管理理论应用于涵盖文件档案信息资源生命周期管理实践的全过程，即在管理思想上以集成理论为指导，在管理行为上以集成机制为核心，在管理视野上突破管理业务流程机构部门间的限制，并从全程管理和最优化管理的层面来对待各种档案信息资源要素。</p>
+				</div>
+			</div>
+		</div>
+		<div class="wrapCen">
+			<div class="searchTop">
+				<div class="mainBox">
+					<div class="searchBtn clearfix">
+						<input type="text" placeholder="请输入关键词" [(ngModel)]="_value" (keyup.enter)="jump()" />
+						<a [routerLink]="['/archives-list',{id:'',item:'7',ifs:'0',keyword:_value}]" class="btn"></a>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<div class="newFile">
+				<div class="mainBox">
+          <div class="fitip">
+            <h3 style="float: left">新增档案</h3>
+            <a style="float: right;color: #6A1B1B" [routerLink]="['/archives-list',{id:'',item:'7',ifs:'2',keyword:''}]">查看更多</a>
+          </div>
+          <nz-carousel>
+            <div class="imgBox" nz-carousel-content *ngFor="let x of results">
+              <ul class="cc">
+                <li *ngFor="let tabs of x">
+                  <a [routerLink]="['/archives-detail',tabs.id]" breadcrumbName="tabs.name" [ngStyle]="{'background-image':'url('+tabs.picurl+')'}"></a>
+                  <div class="txt">
+                    <div class="des clearfix">
+                      <h3>{{tabs.name}}</h3>
+                      <span>来源：{{tabs.archiveName}}</span>
+                    </div>
+                    <p>描述：{{tabs.description}}</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nz-carousel>
+        </div>
+			</div>
+			<div class="fileSet">
+				<div class="mainBox">
+					<h1>南京大屠杀所有档案归属如下</h1>
+				</div>
+			</div>
+			<div class="fileCen clearfix" style="min-height: 500px;">
+				<div class="mainBox clearfix" style="height: 642px;">
+          <nz-tabset [nzTabPosition]="'top'" style="overflow: inherit;top:-294px;">
+            <nz-tab *ngFor="let tab of id;let i = index;">
+              <ng-template #nzTabHeading>
+                <a (click)="tap(tab.id)">
+                  <span></span>
+                  <code></code>
+                </a>
+              </ng-template>
+              <div class="filetxt">
+                <dl class="lt">
+                  <div class="posfix filecybox">
+                    <a [ngStyle]="{'background-image':'url('+rec.picurl+')'}"></a>
+                    <div class="txt">
+                      <div class="des clearfix">
+                        <h3>{{rec.name}}</h3>
+                        <span>来源：{{rec.archiveName}}</span>
+                      </div>
+                      <p>描述：{{rec.description}}</p>
+                    </div>
+                  </div>
+                  <div class="posfix filecybox2">
+                    <a [ngStyle]="{'background-image':'url('+rec1.picurl+')'}"></a>
+                    <div class="txt">
+                      <div class="des clearfix">
+                        <h3>{{rec1.name}} </h3>
+                        <span>来源：{{rec1.archiveName}}</span>
+                      </div>
+                      <p>描述：{{rec1.description}}</p>
+                    </div>
+                  </div>
+                </dl>
+                <dl class="ct">
+                  <div class="posfix filecybox3">
+                    <a [ngStyle]="{'background-image':'url('+rec2.picurl+')'}"></a>
+                    <div class="txt">
+                      <div class="des clearfix">
+                        <h3>{{rec2.name}}</h3>
+                        <span>来源：{{rec2.archiveName}}</span>
+                      </div>
+                      <p>描述：{{rec2.description}}</p>
+                    </div>
+                  </div>
+                  <div class="posfix filecybox4">
+                    <a>
+                      <img [src]="picurl+'417x183.jpg'">
+                    </a>
+                    <a [routerLink]="['/archives-list',{id:tab.id,item:i,ifs:'1',keyword:''}]" class="more">查看更多</a>
+                  </div>
+                  <div class="posfix filecybox3">
+                    <a [ngStyle]="{'background-image':'url('+rec3.picurl+')'}"></a>
+                    <div class="txt">
+                      <div class="des clearfix">
+                        <h3>{{rec3.name}}</h3>
+                        <span>来源：{{rec3.archiveName}}</span>
+                      </div>
+                      <p>描述：{{rec3.description}}</p>
+                    </div>
+                  </div>
+                </dl>
+                <dl class="rt">
+                  <div class="posfix filecybox5">
+                    <a [ngStyle]="{'background-image':'url('+rec4.picurl+')'}"></a>
+                    <div class="txt">
+                      <div class="des clearfix">
+                        <h3>{{rec4.name}}</h3>
+                        <span>来源：{{rec4.archiveName}}</span>
+                      </div>
+                      <p>描述：{{rec4.description}}</p>
+                    </div>
+                  </div>
+                  <div class="posfix filecybox6">
+                    <a [ngStyle]="{'background-image':'url('+rec5.picurl+')'}"></a>
+                    <div class="txt">
+                      <div class="des clearfix">
+                        <h3>{{rec5.name}}</h3>
+                        <span>来源：{{rec5.archiveName}}</span>
+                      </div>
+                      <p>描述：{{rec5.description}}</p>
+                    </div>
+                  </div>
+                </dl>
+              </div>
+            </nz-tab>
+          </nz-tabset>
+				</div>
+				<a routerLink="/archives-clue/null" class="banner"><img class="banner" [src]="picurl+'banner.jpg'"></a>
+			</div>
+		</div>
+	<archives-foot [imgs]="false"></archives-foot>
+  <nz-back-top [nzTarget]="divTarget"></nz-back-top>
+</nz-spin>
+  <nz-modal
+    [nzWidth] = "'500px'"
+    [nzVisible]="isVisible"
+    [nzTitle]="modalTitle"
+    [nzContent]="modalContent"
+    [nzFooter]="modalFooter"
+    (nzOnCancel)="handleCancel()">
+    <ng-template #modalTitle>
+      {{title}}
+    </ng-template>
+    <ng-template #modalContent>
+      <app-regist-compent *ngIf = "key=='1'" [(issucess)]="key" (succeed)="showModal('0','登陆')" ></app-regist-compent>
+      <app-login-compent *ngIf = "key=='0'" [(issucess)]="key" (succeed)="showModal('1','注册')" (landOver)="handleCancel('success')" (fogotpwd)="showModal('2','找回密码')"></app-login-compent>
+      <app-fogot-pwd-component *ngIf = "key=='2'"  [(issucess)]="key" (succeed)="showModal('0','登陆')" ></app-fogot-pwd-component>
+
+
+    </ng-template>
+  </nz-modal>

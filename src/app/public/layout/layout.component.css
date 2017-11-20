@@ -1,0 +1,227 @@
+
+.indexTop {
+  width: 100%;
+  height: 570px;
+  min-height: 765px;
+  background: url(../../../assets/images/indexbanner.jpg) no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+.indexTop .mainBox {
+  position: relative;
+}
+
+.indexTop .mainBox .logo {
+  margin-top: 47px;
+}
+
+.indexTop .login {
+  position: absolute;
+  right: 0;
+  top: 52px;
+}
+
+.indexTop .login a {
+  font-size: 14px;
+  color: #303030;
+  background: url(../../../assets/images/2.png) no-repeat left center;
+  width: 60px;
+  text-indent: 22px;
+  display: inline-block;
+}
+
+.indexTop .login a.reg {
+  background-position: -64px 0;
+}
+.indexTop .login a.admin{
+  background: url(../../../assets/images/2a.png) no-repeat left center;
+  border: 0;
+  width: 80px;
+}
+.indexCen {
+  background: url(../../../assets/images/indexcen.jpg) no-repeat center center;
+  width: 100%;
+  height: 260px;
+  padding-top: 48px;
+}
+
+.indexFoot {
+  width: 100%;
+  background: url(../../../assets/images/indexfoot.png) repeat;
+  height: 88px;
+  line-height: 88px;
+}
+
+.indexFoot .mainBox {
+  position: relative;
+}
+
+.indexFoot h2 {
+  font-weight: normal;
+  font-size: 16px;
+  color: #3d0e00;
+  font-family: "宋体";
+  float: left;
+}
+
+.indexFoot p.number {
+  float: left;
+  display: block;
+  font-size: 16px;
+  color: #a12600;
+  margin-left: 150px;
+}
+
+.indexFoot p.number b {
+  font-size: 16px;
+  padding: 0px 4px;
+  color: #ffffff;
+  background: #9c4714;
+  margin: 0 5px;
+  font-weight: normal;
+}
+
+.indexFoot span.logo {
+  position: absolute;
+  right: 0;
+  color: #5c3611;
+  line-height: 85px;
+}
+
+.indexFoot span.logo abbr {}
+
+.indexFoot span.logo img {
+  vertical-align: middle;
+}
+
+ul.indexBtn {
+  float: left;
+}
+
+ul.indexBtn li {
+  float: left;
+  width: 152px;
+  height: 150px;
+  margin-right: 50px;
+  position: relative;
+  background: url(../../../assets/images/indexBtn.png) no-repeat;
+}
+
+ul.indexBtn li:last-child {
+  margin-right: 0;
+}
+
+ul.indexBtn li:hover {
+  background: url(../../../assets/images/indexBtn_hov.png) no-repeat;
+}
+
+ul.indexBtn li a.go {
+  width: 152px;
+  height: 147px;
+  position: absolute;
+  top: 0;
+  padding-top: 70px;
+  cursor: pointer;
+  text-indent: 40px;
+  font-size: 15px;
+  color: #d8c8c8;
+  background: url(../../../assets/images/san.png) no-repeat 108px 74px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+ul.indexBtn li a:hover.go {
+  opacity: 1;
+  filter: alpha(opacity=1);
+  color: #d8c8c8;
+}
+
+ul.indexBtn li:hover p.name {
+  display: none;
+}
+
+ul.indexBtn li p.name {
+  position: absolute;
+  top: 45px;
+  left: 45px;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  color: #f4f2f2;
+  text-shadow: 0 1px 0 black;
+}
+
+.flower {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  animation: myopcity 5s infinite linear;
+  -webkit-animation: myopcity 5s infinite linear;
+}
+
+@keyframes myopcity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes myopcity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes myopcity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.prompt {
+  float: right;
+  background: url(../../../assets/images/1.png) no-repeat;
+  width: 493px;
+  height: 156px;
+  position: relative;
+  padding: 25px 17px;
+}
+
+.prompt p {
+  font-size: 12px;
+  color: #daae67;
+  line-height: 18px;
+  text-indent: 20px;
+  display: block;
+  width: 459px;
+  height: 108px;
+  overflow: hidden;
+}
+
+.prompt code {
+  font-size: 16px;
+  color: #fdd4b7;
+  position: absolute;
+  top: -10px;
+  left: 200px;
+  display: block;
+  padding: 2px 5px;
+  background: #8c1c12;
+}

@@ -1,0 +1,126 @@
+<div class="toptit cc">
+  <h3>提示：<abbr>审核未通过</abbr>的请重新修改资料提交申请</h3>
+  <ul>
+    <li><i class="on"></i>审核中</li>
+    <li><i class="pass"></i>通过</li>
+    <li><i class="no"></i>未通过</li>
+  </ul>
+</div>
+<nz-table
+  #nzTable
+  [nzDataSource]="_dataSet"
+  [nzIsPagination] = "false">
+  <thead nz-thead>
+  <tr>
+    <th nz-th *ngFor="let key of thstr"><span>{{key}}</span></th>
+  </tr>
+  </thead>
+  <tbody nz-tbody>
+  <tr nz-tbody-tr *ngFor="let data of _dataSet">
+    <td nz-td *ngIf="ifadd==1">{{data.book}}</td>
+    <td nz-td *ngIf="ifadd==2">{{data.title}}</td>
+    <td nz-td *ngIf="ifadd==1">{{data.author}}</td>
+    <td nz-td>{{data.createDate | date:"yyyy-MM-dd" }}</td>
+    <td nz-td *ngIf="ifadd==1">{{data.isbn}}</td>
+    <td nz-td style="text-align: left;padding-left: 36px;width:168px">
+      <i class="on" *ngIf = "data.examine == '0'"></i>
+      <i class="pass"  *ngIf = "data.examine == '1'"></i>
+      <i class="no"  *ngIf = "data.examine == '2'"></i>
+      {{data.examineCN}}
+    </td>
+    <td nz-td style="text-align: left;padding-left: 36px;width: 240px">
+      <a (click)="showModal(data)"><b class="anticon anticon-right-circle-o"></b>查看</a>
+      <a (click)="deletes(data.id)" style="margin: 0px 24px"><b class="anticon anticon-close-circle-o"></b>删除</a>
+      <a (click)="jumpToc(data.id)" *ngIf="data.examine == '2'"><b class="anticon anticon-edit"></b>修改</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+<nz-pagination
+  style="float: right;margin-top: 12px"
+  [nzPageSize]="pagesize"
+  [nzTotal]="total"
+  [(nzPageIndex)] = "pageindex"
+  nzShowQuickJumper
+  nzShowTotal
+  (nzPageIndexChange)="getDatas()">
+</nz-pagination>
+<nz-modal [nzWidth]="680" [nzVisible]="isVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel($event)">
+  <ng-template #modalTitle>
+    {{landname}}征集详情
+  </ng-template>
+  <ng-template #modalContent>
+    <ul *ngIf="currentimg==''" class="datas" >
+      <li *ngIf="seedetail.name&&ifadd==1">
+        <p><span>书<i style="opacity: 0">作者</i>名</span><span>{{seedetail.book}}</span></p>
+      </li>
+      <li *ngIf="seedetail.author&&ifadd==1">
+        <p><span>作<i style="opacity: 0">作者</i>者</span><span>{{seedetail.author}}</span></p>
+      </li>
+      <li *ngIf="seedetail.publish&&ifadd==1">
+        <p><span>出 版 社</span><span>{{seedetail.publish}}</span></p>
+      </li>
+      <li *ngIf="seedetail.title&&ifadd==2">
+        <p><span>档 案 名</span><span>{{seedetail.title}}</span></p>
+      </li>
+      <li *ngIf="seedetail.createDate">
+        <p><span>创建日期</span><span>{{seedetail.createDate| date:"yyyy-MM-dd"}}</span></p>
+      </li>
+      <li *ngIf="seedetail.publishno&&ifadd==1">
+        <p><span>出版编号</span><span>{{seedetail.publishno}}</span></p>
+      </li>
+      <li *ngIf="seedetail.publishcity&&ifadd==1">
+        <p><span>出版城市</span><span>{{seedetail.publishcity}}</span></p>
+      </li>
+      <li *ngIf="seedetail.publishtime&&ifadd==1">
+        <p><span>出版日期</span><span>{{seedetail.publishtime | date:"yyyy-MM-dd"}}</span></p>
+      </li>
+      <li *ngIf="seedetail.type&&ifadd==1">
+        <p><span>文献类型</span><span>{{seedetail.type}}</span></p>
+      </li>
+      <li *ngIf="seedetail.isbn	&&ifadd==1">
+        <p><span>i &nbsp;s &nbsp;b &nbsp;n</span><span>{{seedetail.isbn	}}</span></p>
+      </li>
+      <li *ngIf="seedetail.examineCN">
+        <p><span>审核状态</span><span>{{seedetail.examineCN}}</span></p>
+      </li>
+      <li style="width: 100%" class="contents">
+        <div class="fitall" *ngIf="downList.length!=0">
+          <h2>
+            <span>文件名</span>
+            <span>大小</span>
+            <span>操作</span>
+          </h2>
+          <dl>
+            <dd *ngFor="let key of downList">
+              <nz-tooltip class="left" [nzTitle]="key.originalname" [nzPlacement]="'bottom'">
+                <a nz-tooltip class="oneline" style="max-width: 200px;line-height: 42px;text-indent: 12px;" (click)="toSee(key.preview,key.showurl,key.id,key.actualsize,key.standardsize)">{{key.originalname}}</a>
+              </nz-tooltip>
+              <span class="right" nz-button style="margin-top: 6px;padding-top: 6px" (click)="downLoad(key.id)">下载</span>
+              <span class="right" style="line-height: 42px; margin-right: 8px;">{{key.size}}</span>
+            </dd>
+          </dl>
+        </div>
+        <nz-alert
+          *ngIf="downList.length==0"
+          [nzType]="'warning'"
+          [nzMessage]="'此条目并无附件'"
+          [nzShowIcon]="'true'">
+        </nz-alert>
+
+
+      </li>
+      <li style="width: 100%" class="contents">
+        <p [innerHtml]="seedetail.description	"></p>
+      </li>
+    </ul>
+    <div *ngIf="currentimg!=''" class="imgcontent">
+      <div class="shutdown" (click)="currentimg=''">
+        <i class="anticon anticon-rollback" ></i>
+      </div>
+      <img style="width: 90%;display: block;margin: 0 auto;" [src]="currentimg" alt="">
+    </div>
+  </ng-template>
+</nz-modal>
+<nz-spin [nzSpinning]="_isSpinning" *ngIf="_isSpinning" style="position: fixed;top: 0;right: 0;bottom: 0;left: 0;margin: auto">
+</nz-spin>

@@ -1,0 +1,516 @@
+.wrapTop {
+  width: 100%;
+  height: 649px;
+}
+
+.wrapTop .mainBox {
+  position: relative;
+  height: 649px;
+}
+
+.mainBox .topBtn {
+  position: absolute;
+  right: 0;
+  top: 77px;
+}
+
+.mainBox .topBtn a {
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  color: #303030;
+  background: url(../../assets/images/3.png) no-repeat;
+  width: 111px;
+  text-indent: 36px;
+  display: inline-block;
+  border: 1px solid #898989;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  background-position: 19px 4px;
+  margin-left: 10px;
+}
+
+.mainBox .topBtn a.timeLine {
+  text-indent: 40px;
+}
+
+.mainBox .topBtn a.worship {
+  background-position: 19px -26px;
+}
+
+.mainBox .topBtn a.admin {
+  background-position: 14px -85px;
+  border: 0;
+}
+.mainBox .topBtn a.go{
+  border: none;
+  background: url(../../assets/images/2.png) no-repeat left center;
+  width: 60px;
+  text-indent: 22px;
+  display: inline-block;
+}
+.mainBox .topBtn a.reg {
+  border: none;
+  background: url(../../assets/images/2.png) no-repeat left center;
+  background-position: -60px 4px;
+  text-indent:28px;
+  width: 62px;
+  margin-left: 0;
+}
+
+.topTxt {
+  position: absolute;
+  bottom: 25px;
+  left: 70px;
+  margin: 0 auto;
+  height: 144px;
+  overflow: hidden;
+}
+
+.topTxt h2 {
+  font-size: 18px;
+  color: #fff;
+  font-weight: normal;
+}
+
+.topTxt p {
+  font-size: 14px;
+  line-height: 24px;
+  color: #fff;
+}
+
+.wrapTop {
+  background: url(../../assets/images/25.jpg) no-repeat center center;
+}
+
+.searchTop .searchBtn a.btn {
+  background: #1f3265 url(../../assets/images/search.png) no-repeat center center;
+}
+.newFile{
+  padding-top: 0;
+}
+.newFile .imgBox{
+  margin-top: 28px;
+}
+.newFile .imgBox ul{
+  width: 100%;
+  margin-left: 6px;
+}
+.ant-carousel .slick-dots{
+
+}
+
+
+.searchTop {
+  height: 116px;
+  background: #eeeeee;
+}
+
+.searchTop .searchBtn {
+  width: 574px;
+  margin: 0 auto;
+  padding-top: 34px;
+}
+
+.searchTop .searchBtn input[type=text]{
+  width: 470px;
+  height: 44px;
+  padding: 8px 10px;
+  background: #FFFFFF;
+  border: none;
+  float: left;
+  font-size: 16px;
+  color: #333;
+  border-style: none;
+  box-shadow: inset 0 0 5px #959595;
+  -webkit-box-shadow: inset 0 0 5px #959595;
+  -moz-box-shadow: inset 0 0 5px #959595;
+  -ms-box-shadow: inset 0 0 5px #959595;
+  -o-box-shadow: inset 0 0 5px #959595;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+.ant-input{
+  border: 0 !important;
+}
+.ant-input:focus{
+  border: 0 !important;
+}
+.ant-input-search-icon{
+  font-size: 20px;
+}
+.searchTop .searchBtn a.btn {
+  width: 79px;
+  height: 45px;
+  line-height: 45px;
+  background: #6a1b1b url(../../assets/images/search.png) no-repeat center center;
+  display: block;
+  float: right;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.searchTop .searchBtn .choice {
+  margin-top: 16px;
+}
+
+.searchTop .searchBtn .choice b {
+  color: #333;
+  font-size: 16px;
+  float: left;
+  font-weight: normal;
+}
+
+.searchTop .searchBtn .choice #radiobox {
+  font-size: 16px;
+  float: left;
+  color: #333;
+  margin-top: 4px;
+}
+
+.searchTop .searchBtn .choice #radiobox p {
+  float: left;
+  line-height: 15px;
+  margin-left: 15px;
+}
+
+
+
+.libraryCen .special {
+  width: 634px;
+  height: 358px;
+  float: left;
+}
+
+a.Solicitation {
+  display: block;
+  width: 442px;
+  height: 358px;
+  background: url(../../assets/images/28.jpg) no-repeat;
+  float: right;
+}
+
+.libraryCen .special .library_title {
+  width: 634px;
+}
+
+.libraryCen {
+  background: url(../../assets/images/5.png) repeat;
+  padding: 30px 0 200px 0;
+}
+
+.library_chosen {
+  width: 1100px;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+}
+
+.library_title {
+  width: 1100px;
+  height: 46px;
+  line-height: 46px;
+  padding: 0 32px;
+  position: relative;
+  background: #122968;
+}
+
+.library_title h1 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.library_title a.more {
+  display: block;
+  position: absolute;
+  right: 30px;
+  top: 0;
+  background: url(../../assets/images/26.png) no-repeat;
+  background-position: 0 16px;
+  width: 35px;
+  height: 46px;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+.library_title a.more:hover {
+  right: 20px;
+}
+
+
+.library_chosen .imgBox {
+	margin-top: 37px;
+	margin-bottom: 37px;
+	width: 1030px;
+	height: 268px;
+	overflow: hidden;
+	position: relative;
+  float: left;
+}
+
+.library_chosen .imgBox ul {
+	height: 268px;
+	position: absolute;
+	left: 32px;
+	top: 0;
+	overflow: hidden;
+}
+
+.library_chosen .imgBox ul li {
+	width: 242px;
+	height: 268px;
+	overflow: hidden;
+	background-size: cover;
+	margin-right: 15px;
+	float: left;
+	position: relative;
+	background: #fff;
+}
+
+.library_chosen .imgBox ul li:hover .txt {
+	height: 80px;
+}
+
+.library_chosen .imgBox ul li a {
+	display: block;
+	width: 242px;
+	height: 268px;
+	overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.library_chosen .imgBox ul li img {
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+}
+
+.library_chosen .imgBox ul li .txt {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 242px;
+	height: 35px;
+	line-height: 35px;
+	background: rgba(129, 81, 28, .7);
+	padding: 0 10px;
+	overflow: hidden;
+	transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+}
+
+.library_chosen .imgBox ul li .txt .des {
+	height: 35px;
+	overflow: hidden;
+}
+
+.library_chosen .imgBox ul li .txt p {
+	display: block;
+	font-size: 14px;
+	line-height: 22px;
+	color: #fff;
+	overflow: hidden;
+}
+
+.library_chosen .imgBox ul li .txt h3 {
+	font-size: 14px;
+	font-weight: normal;
+	float: left;
+	color: #fff;
+	width: 120px;
+	overflow: hidden;
+}
+
+.library_chosen .imgBox ul li .txt span {
+	height: 30px;
+	font-size: 12px;
+	color: #FFFFFF;
+	float: right;
+	text-align: right;
+	width: 100px;
+	height: 30px;
+	overflow: hidden;
+}
+
+.library_chosen #prev,
+.library_chosen #next {
+	position: absolute;
+	top: 60%;
+	left: 0;
+	z-index: 9999;
+	overflow: hidden;
+	text-decoration: none;
+	height: 61px;
+	width: 38px;
+	background: url(../../assets/images/arrow.png) no-repeat left top;
+	margin-top: -45px;
+	cursor: pointer
+}
+
+.library_chosen #prev:hover,
+.imgBox #next:hover {
+	opacity: 1;
+}
+
+.library_chosen #next {
+	left: auto;
+	background-position: right top;
+	right: 0px;
+}
+
+.addBook {
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
+
+.addBook .addCen {
+  margin-top: 28px;
+  padding: 0 12px;
+}
+
+.addBook .addCen .addbox {
+  width: 537px;
+  height: 315px;
+  float: left;
+  overflow: hidden;
+}
+
+.addBook .addCen .addbox .img {
+  width: 264px;
+  height: 307px;
+  text-align: center;
+  border: 3px solid #e0dfdf;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+}
+.addBook .addCen .addbox .img img{
+  width: 230px;
+  height: 288px;
+  margin-top: 7px;
+  display: none;
+}
+.addBook .addCen .addbox .txt {
+  width: 267px;
+  height: 307px;
+  background: #fff;
+  position: relative;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+.addBook .addCen .addbox .txt:hover {
+  background: #484a8d !important;
+}
+
+.addBook .addCen .addbox .txt:hover .descirbe h2,
+.addBook .addCen .addbox .txt:hover .descirbe p,
+.addBook .addCen .addbox .txt:hover .descirbe span.time {
+  color: #fff;
+}
+
+.addBook .addCen .addbox .txt .descirbe {
+  display: block;
+  width: 180px;
+  height: 150px;
+  margin: 100px 0 0 60px;
+  position: relative;
+}
+
+.addBook .addCen .addbox .txt .descirbe h2 {
+  font-size: 18px;
+  color: #222222;
+  margin-bottom: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.addBook .addCen .addbox .txt .descirbe p {
+  font-size: 14px;
+  color: #222;
+}
+
+.addBook .addCen .addbox .txt .descirbe span.time {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 12px;
+  color: #434343;
+}
+
+.addBook .addCen .addbox .txt a.more {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../../assets/images/27.png) no-repeat;
+  width: 31px;
+  height: 20px;
+}
+
+.addBook .addCen .add1 .txt a.more,
+.addBook .addCen .add4 .txt a.more {
+  top: 70px;
+  left: 26px;
+  transition: left 0.3s ease-out;
+  -webkit-transition: left 0.3s ease-out;
+  -moz-transition: left 0.3s ease-out;
+  -o-transition: left 0.3s ease-out;
+}
+
+.addBook .addCen .add2 .txt a.more,
+.addBook .addCen .add3 .txt a.more {
+  top: 70px;
+  left: 216px;
+  background-position: 0 -57px;
+  transition: left 0.3s ease-out;
+  -webkit-transition: left 0.3s ease-out;
+  -moz-transition: left 0.3s ease-out;
+  -o-transition: left 0.3s ease-out;
+}
+
+.addBook .addCen .add1 .txt:hover a.more,
+.addBook .addCen .add4 .txt:hover a.more {
+  background-position: 0 -28px;
+}
+
+.addBook .addCen .add2 .txt:hover a.more,
+.addBook .addCen .add3 .txt:hover a.more {
+  background-position: 0 -85px;
+}
+
+.addBook .addCen .add1 .txt:hover a.more:hover,
+.addBook .addCen .add4 .txt:hover a.more:hover {
+  left: 20px;
+}
+
+.addBook .addCen .add2 .txt:hover a.more:hover,
+.addBook .addCen .add3 .txt:hover a.more:hover {
+  left: 222px;
+}
+
+.addBook .addCen .add2 .descirbe {
+  margin: 100px 87px 0 28px !important;
+}

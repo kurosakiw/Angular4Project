@@ -1,0 +1,129 @@
+<nz-spin [nzSpinning]="_isSpinning">
+    <nz-modal
+    [nzWidth] = "'500px'"
+    [nzVisible]="isVisible"
+    [nzTitle]="modalTitle"
+    [nzContent]="modalContent"
+    [nzFooter]="modalFooter"
+    (nzOnCancel)="handleCancel()">
+    <ng-template #modalTitle>
+      {{title}}
+    </ng-template>
+    <ng-template #modalContent>
+      <app-regist-compent *ngIf = "key=='1'" [(issucess)]="key" (succeed)="showModal('0','登陆')" ></app-regist-compent>
+      <app-login-compent *ngIf = "key=='0'" [(issucess)]="key" (succeed)="showModal('1','注册')" (landOver)="handleCancel('success')" (fogotpwd)="showModal('2','找回密码')"></app-login-compent>
+      <app-fogot-pwd-component *ngIf = "key=='2'"  [(issucess)]="key" (succeed)="showModal('0','登陆')" ></app-fogot-pwd-component>
+
+
+    </ng-template>
+  </nz-modal>
+    <div class="wrapTop">
+      <div class="mainBox">
+        <a routerLink="/public"><img class="logo" [src]="picurl+'logo8.png'"></a>
+        <div class="topBtn">
+          <a routerLink="/timeLine" class="timeLine">时间线</a>
+          <a routerLink="/worship" class="worship">网络祭拜</a>
+          <a  *ngIf="changeKey==false" routerLink="/admin" class="admin">个人中心</a>
+          <a  *ngIf="changeKey==true" class="go" (click)="showModal('0','登陆')">登录</a>
+          <a  *ngIf="changeKey==true" class="reg" (click)="showModal('1','注册')">注册</a>
+        </div>
+        <div class="topTxt">
+          <h2>简介：</h2>
+          <p>数字档案馆是一个内容管理系统、集成系统和数字信息长期保存系统的集合。作为以电子文件、档案以及其他信息资源等非结构化数据为主要管理对象的数字档案馆，它不仅仅起到一个数据中心的作用，也不仅仅起到发布利用的作用，而是具有有序处理和集成管理的功能。它的有序处理和管理过程包括收集、创建、确认、转换、存档、管理、发布利用等涵盖文件生命周期管理实践的全过程。集成（integration）含综合、融合、整合成为整体和一体化的意思。就数字档案馆而言，就是将集成管理理论应用于涵盖文件档案信息资源生命周期管理实践的全过程，即在管理思想上以集成理论为指导，在管理行为上以集成机制为核心，在管理视野上突破管理业务流程机构部门间的限制，并从全程管理和最优化管理的层面来对待各种档案信息资源要素。</p>
+        </div>
+      </div>
+    </div>
+    <div class="wrapCen">
+			<div class="propagWrap" style="padding: 50px 0;">
+				<div class="mainBox">
+					<div class="netWork clearfix">
+						<h1 class="protitle">网络展馆</h1>
+						<ul class="netList">
+							<li [ngClass]="{'on':type=='0'}" (click)="getData('0')">
+								<a>全部</a>
+							</li>
+							<li [ngClass]="{'on':type=='1'}" (click)="getData('1')">
+								<a>精选</a>
+							</li>
+							<li [ngClass]="{'on':type=='2'}" (click)="getData('2')">
+								<a>新增</a>
+							</li>
+						</ul>
+						<div class="netBox" style="display: block;">
+							<div class="bigBox">
+								<div class="fancyimg">
+									<div class="leftimg">
+                    <video [src]="allist.videourl" [poster]="allist.picurl" controls></video>
+									</div>
+									<div class="rightbox">
+										<h3 [routerLink]="['/propaganda-detail',allist.id]" style="cursor: pointer">{{allist.title}}</h3>
+										<p>简介:{{allist.description}}</p>
+										<div class="play">
+											播放次数：{{allist.views}}
+										</div>
+										<a [routerLink]="['/propaganda-list',type]" class="more">查看更多</a>
+									</div>
+								</div>
+							</div>
+							<div class="wrapimg">
+									<a id="prev" (click)="moveLeft()"></a>
+                  <div class="imgcon">
+									  <ul [ngStyle]="{'margin-left':nums+'px'}" style="transition: all 0.5s" class="imgBtn cc">
+                      <li [ngClass]="{'on':i==cur}" *ngFor="let item of result;let i = index" (click)="fn(item,i)">
+                        <img [src]="item.picurl">
+                      </li>
+									  </ul>
+                  </div>
+                  <a id="next" (click)="moveRight()"></a>
+							</div>
+						</div>
+					</div>
+					<a target="_blank" href="http://www.cngongji.cn">
+						<img [src]="picurl+'41.jpg'">
+					</a>
+					<div class="classroom">
+						<h1 class="protitle">远程课堂</h1>
+						<div class="searchTip">
+							<div class="searchClass">
+								<input type="text" (keyup.enter)="getDatas('null')" [(ngModel)]="content" placeholder="请输入关键词">
+								<a (click)="getDatas('null')" class="btn">搜索</a>
+							</div>
+							<dl class="tip1">
+								<dt>分类：</dt>
+								<dd>
+									<a (click)="getDatas(0)" [ngClass]="{'all':searchtype==0}">全部</a>
+									<a (click)="getDatas(2)" [ngClass]="{'all':searchtype==2}">最新课程</a>
+									<a (click)="getDatas(1)" [ngClass]="{'all':searchtype==1}">热门课程</a>
+								</dd>
+							</dl>
+						</div>
+						<ul class="classList clearfix">
+							<li *ngFor="let item of atList">
+								<a [routerLink]="['/classroom',item.id]" class="imgbg">
+									<img [src]="item.picurl">
+								</a>
+								<h3>{{item.title}}</h3>
+								<p>上传时间：{{item.updateDate | date:"yyyy-MM-dd"}}</p>
+								<p><span class="lt">目前在线人数:{{item.online}}人</span><span class="rt">已看人数:{{item.views}}人</span></p>
+								<a href="" class="link"></a>
+							</li>
+              <nz-alert
+                *ngIf="atList.length==0"
+                style="width: 97%"
+                [nzType]="'warning'"
+                [nzMessage]="'提示'"
+                [nzDescription]="'暂无符合条件的课程...'"
+                [nzShowIcon]="true">
+              </nz-alert>
+
+            </ul>
+            <div class="pages">
+              <nz-pagination [nzPageIndex]="pageindex" [nzTotal]="pagetotal" nzShowQuickJumper [nzPageSize]="pagesize" nzShowTotal (nzPageIndexChange)="getDatas('null')"></nz-pagination>
+            </div>
+					</div>
+				</div>
+			</div>
+		</div>
+    <archives-foot [imgs]="true"></archives-foot>
+  <nz-back-top [nzTarget]="divTarget"></nz-back-top>
+</nz-spin>

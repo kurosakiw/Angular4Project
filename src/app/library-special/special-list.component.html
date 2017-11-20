@@ -1,0 +1,41 @@
+<nz-spin [nzSpinning]="_isSpinning">
+  <library-top></library-top>
+		<div class="currentLocation">
+			<div class="mainBox">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>
+            <i class="anticon anticon-home"></i>
+            <a routerLink="/library"><span>数字图书馆</span></a>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            <a routerLink="/special-list"><span>专题列表</span></a>
+          </nz-breadcrumb-item>
+        </nz-breadcrumb>
+			</div>
+		</div>
+		<div class="showwrap">
+			<div class="mainBox">
+				<ul class="special">
+					<li *ngFor="let item of result">
+						<div class="dateBox">
+							<p class="date">{{item.updateDate | date: 'dd'}}</p>
+							<p class="year">{{item.updateDate | date: 'yyyy-MM'}}</p>
+						</div>
+						<a [routerLink]="['/special-show',item.id]" class="imgBox">
+							<img src="{{item.picurl}}">
+						</a>
+						<div class="rightBox">
+							<h3>{{item.title}}</h3>
+							<p>{{item.description}}</p>
+							<a [routerLink]="['/special-show',item.id]" class="more">查看详情</a>
+						</div>
+					</li>
+
+				</ul>
+        <div class="page">
+          <nz-pagination [nzPageIndex]="pageindex" [nzTotal]="pagetotal" nzShowQuickJumper [nzPageSize]="pagesize" nzShowTotal (nzPageIndexChange)="getDatas()"></nz-pagination>
+        </div>
+			</div>
+		</div>
+  <library-foot></library-foot>
+</nz-spin>

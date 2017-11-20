@@ -1,0 +1,72 @@
+<archives-top [ifs]="true"></archives-top>
+<div class="currentLocation">
+  <div class="mainBox">
+    <nz-breadcrumb>
+      <nz-breadcrumb-item>
+        <i class="anticon anticon-home"></i>
+        <a routerLink="/archives"><span>数字档案馆</span></a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>
+        <a routerLink="/archives-list"><span>档案列表</span></a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>
+        <span>{{detailid.name}}</span>
+      </nz-breadcrumb-item>
+    </nz-breadcrumb>
+  </div>
+</div>
+<div class="showCen">
+  <div class="mainBox">
+    <div class="showBox">
+      <div class="showtip">
+        <h1>{{detailid.name}}</h1>
+        <div class="tip">
+          <span>所属档案馆：<i>{{detailid.archive}}</i></span>
+          <span class="num">档号：<i>{{detailid.number}}</i></span>
+          <span class="see">浏览：<i>{{detailid.views}}</i></span>
+          <nz-dropdown *ngIf="userId" style="width: 70px;position: absolute;right:30px" [nzClickHide]="false" [(nzVisible)]="visible">
+            <span (click)="iftis()"  style="cursor: pointer;" class="ant-dropdown-link" nz-dropdown>
+              <i class="anticon anticon-download"></i>附件 <i class="anticon anticon-down"></i>
+            </span>
+            <ul nz-menu>
+              <li nz-menu-item *ngFor="let item of dataList"  style="overflow: hidden">
+                <a class="oneline" (click)="toSee(item.preview,item.showurl,item.id,item.actualsize,item.standardsize)" style="float: left;line-height: 28px">{{item.originalname}}</a>
+                <code style="float: left;margin-left: 6px;width: 88px;line-height: 28px">{{item.size}}</code>
+                <button style="float: left;margin-left: 6px" nz-button [nzType]="'default'" [nzSize]="size" (click)="download(item.id)">
+                  <i class="anticon anticon-download"></i>
+                  <span>下载</span>
+                </button>
+              </li>
+              <li nz-menu-item (click)="download()" *ngIf="dataList.length!=0"><p style="text-align: center;cursor: pointer">下载全部</p></li>
+
+            </ul>
+          </nz-dropdown>
+        </div>
+      </div>
+      <div class="showtxt">
+       {{detailid.description}}
+      </div>
+      <!--<div class="showpage clearfix">-->
+        <!--<div class="lt">-->
+          <!--上一篇：-->
+          <!--<a>的xxxx</a>-->
+        <!--</div>-->
+        <!--<div class="rt">-->
+          <!--下一篇：-->
+          <!--<a>的xxxx</a>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+  </div>
+</div>
+<archives-foot [imgs]="false"></archives-foot>
+<nz-modal [nzWrapClassName]="'vertical-center-modal'" [nzVisible]="isVisible" [nzTitle]="modalTitle" [nzWidth]="'60%'" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel($event)">
+  <ng-template #modalTitle>
+    查看图片
+  </ng-template>
+  <ng-template #modalContent>
+    <img [src] = "thisImg" style="width: 100%;"/>
+  </ng-template>
+  <ng-template #modalFooter>
+  </ng-template>
+</nz-modal>

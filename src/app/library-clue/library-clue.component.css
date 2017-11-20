@@ -1,0 +1,277 @@
+.showCen .mainBox .cluelogo {
+  position: absolute;
+  top: 0;
+  left: 8px;
+  display: block;
+  background: url(../../assets/images/22.png) no-repeat;
+  width: 131px;
+  height: 173px;
+}
+
+.clueTop {
+  width: 814px;
+  margin: 0 auto;
+  border-bottom: 1px dashed #c5bb95;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.clueTop h4 {
+  font-weight: normal;
+  font-size: 18px;
+  color: #aa6f23;
+  margin-bottom: 30px;
+}
+
+.tabletxt {
+  display: block;
+}
+
+.tabletxt tr {
+   width: 814px;
+   margin-bottom: 28px;
+ }
+.tabletxt tr td{
+  width: 390px;
+}
+.tabletxt tr td label {
+  font-size: 14px;
+  color: #4f4f4f;
+  margin-right: 5px;
+  text-align: right;
+  width: 88px;
+  height: 37px;
+  line-height: 37px;
+  overflow: hidden;
+  display: inline-block;
+
+}
+
+.tabletxt tr td .ant-input-wrapper{
+  width: 100%;
+}
+
+
+.tabletxt tr td.mr38 {
+  margin-right: 34px;
+}
+
+.photo {
+  float: left;
+  margin-left: 30px;
+}
+
+.photo span {
+  width: 64px;
+  height: 21px;
+  overflow: hidden;
+  float: left;
+  margin-right: 10px;
+}
+
+.photo a.up {
+  display: inline-block;
+  width: 88px;
+  height: 29px;
+  line-height: 29px;
+  font-size: 12px;
+  color: #fff;
+  padding-left: 35px;
+  background: #747474 url(../../assets/images/24.png) no-repeat;
+  background-position: 11px 5px;
+  float: left;
+  margin-top: 70px;
+}
+
+#pic {
+  float: left;
+  width: 139px;
+  height: 151px;
+  cursor: pointer;
+  background: url(../../assets/images/23.png) no-repeat center center;
+  border: 1px dashed #a1a1a1;
+}
+
+.showCen .editBox {
+  margin: 0 auto;
+  width: 814px;
+  height: 496px;
+  background: #fff;
+}
+
+.showCen .Submit {
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  color: #FFFFFF;
+  background: #693b27;
+  padding: 8px 45px;
+  border: 0;
+  margin: 30px auto;
+  border-radius: 15px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+
+.currentLocation {
+  color: #525252;
+  width: 100%;
+  height: 44px;
+  line-height: 46px;
+  background: #FFFFFF;
+  box-shadow: inset 0 0 1px #d5d4d0;
+  -webkit-box-shadow: inset 0 0 3px #d5d4d0;
+  -moz-box-shadow: inset 0 0 1px #d5d4d0;
+  -ms-box-shadow: inset 0 0 1px #d5d4d0;
+  -o-box-shadow: inset 0 0 1px #d5d4d0;
+}
+
+.currentLocation a {
+  font-size: 14px;
+  color: #525252;
+  height: 45px;
+  display: inline-block;
+}
+
+.currentLocation a.home {
+  background: url(../../assets/images/home.png) left center no-repeat;
+  background-size: 17px;
+  text-indent: 20px;
+}
+
+.currentLocation .mainBox {
+  position: relative;
+}
+
+.currentLocation .mainBox a.return {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url(../../assets/images/return.png) no-repeat left center;
+  padding-left: 20px;
+}
+.showCen .mainBox {
+  width: 1100px;
+  padding: 26px 30px 150px 30px;
+}
+.showCen .Submit {
+  background: #051a54;
+}
+
+.editBox .ng-untouched .ql-container{
+  height: 430px;
+}
+.showCen {
+  padding-top: 0;
+}
+
+.showCen .mainBox {
+  position: relative;
+  background: #f6f1de;
+  padding-top: 80px;
+}
+.filegroup{
+  overflow: hidden;
+}
+.filegroup li{
+  float: left;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.filegroup li img{
+  width: 100px;
+  height: 100px;
+}
+.filegroup li p{
+  width: 100px;
+  padding:0px 10px !important;
+  background-color: rgba(0,0,0,0.8);
+  color: #FFFFFF;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+.filegroup li div{
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0,0,0,0.8);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+.filegroup li div span{
+  cursor: pointer;
+  width: 38px;
+  display: block;
+  height: 23px;
+  position: absolute;
+  top: 0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+.filegroup li div span{
+  cursor: pointer;
+  width: 40px;
+  display: block;
+  height: 18px;
+  position: absolute;
+  top: 0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  color: #FFFFFF;
+  font-size: 16px;
+  overflow: hidden;
+}
+.filegroup li div span i{
+  cursor: pointer;
+  width: 20px;
+  height:20px;
+  float: left;
+}
+.filegroup li div span i+i{
+  cursor: pointer;
+  width: 20px;
+  height:20px;
+  float: right;
+}
+
+.filegroup li:hover div{
+  opacity:1;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+.filegroup li .tocenter{
+  float: none !important;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+}

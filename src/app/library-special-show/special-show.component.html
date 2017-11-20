@@ -1,0 +1,45 @@
+
+<library-top></library-top>
+<div class="currentLocation">
+  <div class="mainBox">
+    <nz-breadcrumb>
+      <nz-breadcrumb-item>
+        <i class="anticon anticon-home"></i>
+        <a routerLink="/library"><span>数字图书馆</span></a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>
+        <a routerLink="/special-list"><span>专题列表</span></a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>
+        <span>{{result.title}}</span>
+      </nz-breadcrumb-item>
+    </nz-breadcrumb>
+  </div>
+</div>
+<div class="showCen">
+  <div class="mainBox">
+    <div class="showBox">
+      <div class="titleTip">
+        <h1>{{result.title}}</h1>
+        <div class="desc">
+          <span>发布时间：{{result.updateDate | date: 'yyyy-MM-dd'}}</span>
+          <span>浏览量：{{result.views}}</span>
+        </div>
+      </div>
+      <div class="showtxt" [innerHtml]="result.context">
+
+      </div>
+      <div class="showpage clearfix">
+        <div class="lt" *ngIf="prev.id">
+          上一篇：
+          <a (click)="getDatas(prev.id)">{{prev.title}}</a>
+        </div>
+        <div class="rt" *ngIf="next.id">
+          下一篇：
+          <a (click)="getDatas(next.id)">{{next.title}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<library-foot></library-foot>

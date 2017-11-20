@@ -1,0 +1,78 @@
+<nz-spin [nzSpinning]="_isSpinning">
+    <library-top></library-top>
+		<div class="currentLocation">
+			<div class="mainBox">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>
+            <i class="anticon anticon-home"></i>
+            <a routerLink="/library"><span>数字图书馆</span></a>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            <a routerLink="/archives/archives-list" routerLinkActive="active-link"><span >图书列表</span></a>
+          </nz-breadcrumb-item>
+        </nz-breadcrumb>
+			</div>
+		</div>
+		<div class="showwrap">
+			<div class="librarylistBox" style="padding-top: 24px">
+				<div class="mainBox">
+					<div class="tip">
+            <nz-input [nzSize]="'large'" style="width: 322px;float: left; margin-left: 8.5px;margin-top: 8.5px" [(ngModel)]="keyword" [nzPlaceHolder]="'请输入搜索内容...'" (keyup.enter)="getSelected()">
+              <ng-template #addOnBefore>
+                <nz-select style="width: 88px;"[nzPlaceHolder]="'全部'" (ngModelChange)="getSelected()"  [(ngModel)]="ifadd">
+                  <nz-option [nzLabel]="'全部'"  [nzValue]="''"></nz-option>
+                  <nz-option [nzLabel]="'特选条目'" [nzValue]="'0'"></nz-option>
+                  <nz-option [nzLabel]="'新增书籍'" [nzValue]="'1'"></nz-option>
+                </nz-select>
+              </ng-template>
+              <ng-template #addOnAfter>
+                <i class="anticon anticon-search ant-input-search-icon" (click)="getSelected()"></i>
+              </ng-template>
+            </nz-input>
+						<div class="right">
+							<span>排列</span>
+						</div>
+					</div>
+					<div class="listbox">
+						<a class="one" [ngClass]="{'on':key==0 }" (click)="gais('0')"></a>
+						<a class="two" [ngClass]="{'on':key==1 }" (click)="gais('1')"></a>
+						<ul class="las listone clearfix" *ngIf="key==0">
+							<li *ngFor="let item of result">
+								<a [routerLink]="['/library-detail',item.id]" [ngStyle]="{'background-image':'url('+item.picurl+')'}">
+                </a>
+								<div class="txt">
+									<div class="des clearfix">
+										<h3>{{item.name}}</h3><span> 作者：{{item.author}}</span>
+									</div>
+									<p>描述：{{item.description}}</p>
+								</div>
+							</li>
+						</ul>
+						<ul class="las listtwo clearfix" *ngIf="key==1">
+							<li *ngFor="let item of result">
+								<div class="imgbox"  [ngStyle]="{'background-image':'url('+item.picurl+')'}">
+								</div>
+								<div class="righttxt">
+									<div class="clearfix">
+										<h3>{{item.name}}</h3><span class="author">作者：{{item.author}}</span>
+									</div>
+									<p class="clo"><span>ISBN：{{item.isbn}}</span><span>出版社：{{item.publish}}</span></p>
+									<div class="txt">
+                    {{item.description}}
+									</div>
+									<a [routerLink]="['/library-detail',item.id]" class="more">查看详情</a>
+								</div>
+							</li>
+
+						</ul>
+
+					</div>
+					<div class="page">
+            <nz-pagination [(nzPageIndex)]="pageindex" [nzTotal]="pagetotal" nzShowQuickJumper [nzPageSize]="pagesize" nzShowTotal (nzPageIndexChange)="getSelected()"></nz-pagination>
+					</div>
+				</div>
+			</div>
+		</div>
+    <library-foot></library-foot>
+    <nz-back-top [nzTarget]="divTarget"></nz-back-top>
+</nz-spin>

@@ -1,0 +1,114 @@
+    <library-top></library-top>
+		<div class="currentLocation">
+			<div class="mainBox">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>
+            <i class="anticon anticon-home"></i>
+            <a routerLink="/library"><span>数字图书馆</span></a>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            <a [routerLink]="['/library-list',{type:'0'}]"><span>图书列表</span></a>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            <span>{{result.name}}</span>
+          </nz-breadcrumb-item>
+        </nz-breadcrumb>
+				<a onclick="history.go(-1);" class="return">返回</a>
+			</div>
+		</div>
+		<div class="showwrap">
+			<div class="mainBox">
+				<div class="titleTop clearfix">
+					<div class="leftimg" [ngStyle]="{'background-image':'url('+result.picurl+')'}">
+						<img src="{{result.picurl}}" style="display: none">
+					</div>
+					<div class="righttx">
+						<h2>{{result.name}}</h2>
+						<table class="tabletit" border="1" cellspacing="0" cellpadding="0">
+							<tr>
+								<td class="t1">书名</td>
+								<td>{{result.name}}</td>
+								<td class="t1">出版日期</td>
+								<td>{{result.publishtime | date: 'yyyy-MM-dd'}}</td>
+							</tr>
+							<tr>
+								<td class="t1">作者</td>
+								<td>{{result.author}}</td>
+								<td class="t1">ISBN</td>
+								<td>{{result.isbn}}</td>
+							</tr>
+							<tr>
+								<td class="t1">出版城市</td>
+								<td>{{result.publishcity}}</td>
+								<td class="t1">出版社</td>
+								<td>{{result.publish}}</td>
+							</tr>
+						</table>
+						<div class="btnBas clearfix" *ngIf="userId">
+              <nz-dropdown [nzTrigger]="'click'">
+                <a (click)="iftis('下载')" class="down ant-dropdown-link" nz-dropdown>
+                 下载 <i class="anticon anticon-down"></i>
+                </a>
+                <ul nz-menu>
+                  <li nz-menu-item *ngFor="let item of files" (click)="download(item.id)">
+                    <span  class="oneline">{{item.originalname}}</span>
+                    <code>{{item.size}}</code>
+                  </li>
+                  <li nz-menu-item (click)="download()" *ngIf="files.length!=0"><span>全部</span></li>
+                </ul>
+              </nz-dropdown>
+
+              <nz-dropdown [nzTrigger]="'click'">
+                <a style="background-position: 103px -177px;" (click)="iftis('预览')" class="down ant-dropdown-link" nz-dropdown>
+                  在线阅读<i class="anticon anticon-down"></i>
+                </a>
+                <ul nz-menu>
+                  <li nz-menu-item *ngFor="let key of files" (click)="toSee(key.preview,key.showurl,key.id,key.actualsize,key.standardsize)">
+                    <span class="oneline">{{key.originalname}}</span>
+                    <code>{{key.size}}</code>
+                  </li>
+
+
+                </ul>
+              </nz-dropdown>
+
+            </div>
+					</div>
+				</div>
+				<div class="txtwrap">
+					<span class="jie">简介</span>
+					<div class="introduction">
+						{{result.description}}
+					</div>
+				</div>
+				<div class="recommend">
+					<span class="jie">相关推荐</span>
+					<ul class="recommendlist">
+						<li *ngFor="let item of told" (click)="getSelected(item.id)">
+							<div class="img" style="width: 168px;height:140px;margin:0 auto;overflow: hidden;background-position: center center;background-repeat: no-repeat;background-size: cover" [ngStyle]="{'background-image':'url('+item.picurl+')'}">
+								<a>
+                  <img src="{{item.picurl}}" style="opacity: 0">
+                </a>
+							</div>
+							<div class="txt" style="padding-left: 16px;margin-top: 8px">
+								<h4><a href="">{{item.name}}</a></h4>
+								<p>出版日期：{{item.publishtime | date: 'yyyy-MM-dd'}}</p>
+								<p class="isbn">ISBN：{{item.isbn}}</p>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	  <library-foot></library-foot>
+    <nz-modal [nzWrapClassName]="'vertical-center-modal'" [nzVisible]="isVisible" [nzTitle]="modalTitle" [nzWidth]="'60%'" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel($event)">
+      <ng-template #modalTitle>
+        查看图片
+      </ng-template>
+      <ng-template #modalContent>
+        <img [src] = "thisImg" style="width: 100%;"/>
+      </ng-template>
+      <ng-template #modalFooter>
+      </ng-template>
+    </nz-modal>

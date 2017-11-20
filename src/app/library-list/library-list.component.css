@@ -1,0 +1,429 @@
+.currentLocation {
+  color: #525252;
+  width: 100%;
+  height: 44px;
+  line-height: 46px;
+  background: #FFFFFF;
+  box-shadow: inset 0 0 1px #d5d4d0;
+  -webkit-box-shadow: inset 0 0 3px #d5d4d0;
+  -moz-box-shadow: inset 0 0 1px #d5d4d0;
+  -ms-box-shadow: inset 0 0 1px #d5d4d0;
+  -o-box-shadow: inset 0 0 1px #d5d4d0;
+}
+
+.currentLocation a {
+  font-size: 14px;
+  color: #525252;
+  height: 45px;
+  display: inline-block;
+}
+
+.currentLocation a.home {
+  background: url(../../assets/images/home.png) left center no-repeat;
+  background-size: 17px;
+  text-indent: 20px;
+}
+
+.currentLocation .mainBox {
+  position: relative;
+}
+
+.currentLocation .mainBox a.return {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url(../../assets/images/return.png) no-repeat left center;
+  padding-left: 20px;
+}
+
+
+.librarylistBox .mainBox,.tushulistBox .mainBox{
+  width: 1100px;
+  padding: 10px 10px;
+  background: #fff;
+}
+
+.librarylistBox .tip {
+  margin: 0 auto;
+  width: 1080px;
+  height: 50px;
+  line-height: 50px;
+  background: #eeeeee;
+}
+
+.showwrap {
+  background: url(../../assets/images/5.png) repeat;
+  padding-bottom: 150px;
+}
+
+.librarylistBox .tip {
+  position: relative;
+}
+
+.librarylistBox .tip .left {
+  position: absolute;
+  left: 10px;
+  top: 0;
+}
+
+.librarylistBox .tip .left span {
+  color: #494949;
+  font-size: 14px;
+  background: url(../../assets/images/32.png) right center no-repeat;
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.librarylistBox .tip .left span:hover {
+  color: #122968;
+}
+
+.librarylistBox .tip .right {
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.librarylistBox .tip .right span {
+  float: left;
+  padding-right: 60px;
+}
+
+.listbox a.one,.listbox a.two {
+  display: block;
+  margin-top: 12px;
+  width: 21px;
+  height: 17px;
+  background: url(../../assets/images/33.png) no-repeat;
+  float: left;
+  margin-left: 10px;
+  position: absolute;
+}
+.listbox a.one{
+  right: 40px;
+  top:-57.5px;
+}
+.listbox a.two{
+  right: 12px;
+  top:-57.5px;
+}
+.listbox a.on.one,
+.listbox a.one:hover {
+  background-position: 0 -23px;
+}
+
+.listbox a.on.two,
+.listbox a.two:hover {
+  background-position: -28px -23px;
+}
+
+.listbox a.two {
+  background-position: -28px 0;
+}
+
+.listbox {
+  position: relative;
+  margin-top: 13px;
+}
+
+.listbox .listone {
+  width: 1100px;
+}
+
+.listbox .listone li {
+  width: 200px;
+  height: 223px;
+  overflow: hidden;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  float: left;
+  position: relative;
+}
+
+.listbox .listone li a {
+  display: block;
+  width: 198px;
+  height: 221px;
+  overflow: hidden;
+  border: 1px solid #bfbfbf;
+  background: #fff;
+  margin: 0 auto;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+}
+
+.listbox .listone li a img {
+  height: 221px;
+}
+
+.listbox .listone li .txt {
+  position: absolute;
+  bottom: 3px;
+  left: 2px;
+  width: 196px;
+  height: 34px;
+  line-height: 34px;
+  background: rgba(5, 26, 84, .7);
+  padding: 0 10px;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+.listbox .listone li .txt .des {
+  height: 30px;
+  overflow: hidden;
+}
+
+.listbox .listone li .txt p {
+  display: block;
+  font-size: 14px;
+  line-height: 22px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.listbox .listone li .txt .des h3 {
+  font-size: 14px;
+  font-weight: normal;
+  float: left;
+  color: #fff;
+  width: 100px;
+  height: 30px;
+}
+
+.listbox .listone li .txt .des span {
+  width: 78px;
+  height: 30px;
+  overflow: hidden;
+  font-size: 12px;
+  color: #FFFFFF;
+  float: right;
+  text-align: right;
+}
+
+.listbox .listone li:hover .txt {
+  height: 78px;
+}
+
+.listbox .listtwo li {
+  height: 200px;
+  border-bottom: 1px solid #cbcbcb;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.listbox .listtwo li a.more {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: block;
+  padding: 4px 6px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  color: #333;
+  font-size: 12px;
+}
+
+.listbox .listtwo li a.more:hover {
+  background: #122968;
+  color: #fff;
+}
+
+.listbox .listtwo li .imgbox {
+  float: left;
+  width: 198px;
+  height: 198px;
+  margin-right: 25px;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid #eee;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.listbox .listtwo li .imgbox img {
+  margin: 0 auto;
+  height: 200px;
+}
+
+.listbox .listtwo li .righttxt {
+  float: right;
+  width: 853px;
+}
+
+.listbox .listtwo li .righttxt .clearfix {
+  line-height: 26px;
+  margin-bottom: 5px;
+}
+
+.listbox .listtwo li .righttxt h3 {
+  float: left;
+  font-size: 20px;
+  color: #051a54;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.listbox .listtwo li .righttxt .author {
+  float: left;
+  font-size: 16px;
+  color: #4c4c4c;
+}
+
+.listbox .listtwo li .righttxt p.clo {
+  display: block;
+  color: #4c4c4c;
+  font-size: 16px;
+  border-bottom: 1px dashed #aca8a7;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.listbox .listtwo li .righttxt p.clo span {
+  margin-right: 30px;
+}
+
+.listbox .listtwo li .righttxt .txt {
+  font-size: 14px;
+  color: #4c4c4c;
+  line-height: 22px;
+}
+
+
+.searchTop {
+  height: 116px;
+  background: #eeeeee;
+}
+
+.searchTop .searchBtn {
+  margin: 0 auto;
+  padding-top: 34px;
+}
+
+.searchTop .searchBtn input[type=text]{
+  width: 470px;
+  height: 44px;
+  padding: 8px 10px;
+  background: #FFFFFF;
+  border: none;
+  float: left;
+  font-size: 16px;
+  color: #333;
+  border-style: none;
+  box-shadow: inset 0 0 5px #959595;
+  -webkit-box-shadow: inset 0 0 5px #959595;
+  -moz-box-shadow: inset 0 0 5px #959595;
+  -ms-box-shadow: inset 0 0 5px #959595;
+  -o-box-shadow: inset 0 0 5px #959595;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+.ant-input{
+  border: 0 !important;
+}
+.ant-input:focus{
+  border: 0 !important;
+}
+.ant-input-search-icon{
+  font-size: 20px;
+}
+.searchTop .searchBtn a.btn {
+  width: 79px;
+  height: 45px;
+  line-height: 45px;
+  background: #1f3265 url(../../assets/images/search.png) no-repeat center center;
+  display: block;
+  float: right;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.searchTop .searchBtn .choice {
+  margin-top: 16px;
+}
+
+.searchTop .searchBtn .choice b {
+  color: #333;
+  font-size: 16px;
+  float: left;
+  font-weight: normal;
+}
+
+.searchTop .searchBtn .choice #radiobox {
+  font-size: 16px;
+  float: left;
+  color: #333;
+  margin-top: 4px;
+}
+
+.searchTop .searchBtn .choice #radiobox p {
+  float: left;
+  line-height: 15px;
+  margin-left: 15px;
+}
+
+.page {
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px 0;
+  background: #fff;
+}
+.searchTop {
+  width: 1100px;
+  height: 114px;
+  background: #fff;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.wrapCen .searchTop {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.searchTop .searchBtn input[type=text] {
+  height: 28px;
+  box-shadow: inset 0 0 5px #122968;
+  -webkit-box-shadow: inset 0 0 5px #122968;
+  -moz-box-shadow: inset 0 0 5px #122968;
+  -ms-box-shadow: inset 0 0 5px #122968;
+  -o-box-shadow: inset 0 0 5px #122968;
+}
+
+
+:host ::ng-deep .ant-back-top {
+  bottom: 100px;
+}
+:host ::ng-deep .ant-back-top-inner {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  background-color: #1088e9;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+:host ::ng-deep strong {
+  color: #1088e9;
+}

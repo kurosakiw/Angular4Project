@@ -1,0 +1,76 @@
+<nz-tabset [(nzSelectedIndex)] = "item" (nzSelectedIndexChange)="changeForm()" style="width: 218px;display: block;margin:0 auto;">
+  <nz-tab *ngFor="let tab of tabs">
+    <ng-template #nzTabHeading>
+      <span style="font-size: 14px;color: #333;font-weight: lighter">{{tab.name}}</span>
+    </ng-template>
+  </nz-tab>
+</nz-tabset>
+
+<form nz-form [formGroup]="validateForm" (ngSubmit)="_submitForm()">
+  <div nz-form-item nz-row *ngIf="item==1">
+    <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+      <label for="email" nz-form-item-required>邮箱</label>
+    </div>
+    <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('email')">
+      <nz-input [nzSize]="'large'" formControlName="email" [nzId]="'email'"></nz-input>
+      <div nz-form-explain *ngIf="getFormControl('email').dirty&&getFormControl('email').hasError('email')">输入不是有效的电子邮件！</div>
+    </div>
+  </div>
+  <div nz-form-item nz-row *ngIf="item==0">
+    <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+      <label for="phoneNumber" nz-form-item-required>手机号</label>
+    </div>
+    <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('phoneNumber')">
+      <nz-input [nzSize]="'large'" formControlName="phoneNumber" [nzId]="'phoneNumber'"></nz-input>
+      <div nz-form-explain *ngIf="getFormControl('phoneNumber').dirty&&getFormControl('phoneNumber').hasError('required')">请输入您的电话号码！</div>
+    </div>
+  </div>
+
+  <div nz-form-item nz-row>
+    <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+      <label for="password" nz-form-item-required>密码</label>
+    </div>
+    <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('password')">
+      <nz-input [nzSize]="'large'" formControlName="password" [nzType]="'password'" [nzId]="'password'" (ngModelChange)="updateConfirmValidator()"></nz-input>
+      <div nz-form-explain *ngIf="getFormControl('password').dirty&&getFormControl('password').hasError('required')">请输入密码！</div>
+    </div>
+  </div>
+  <div nz-form-item nz-row>
+    <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+      <label for="checkPassword" nz-form-item-required>确认密码</label>
+    </div>
+    <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('checkPassword')">
+      <nz-input [nzSize]="'large'" formControlName="checkPassword" [nzType]="'password'" [nzId]="'checkPassword'"></nz-input>
+      <div nz-form-explain *ngIf="getFormControl('checkPassword').dirty&&getFormControl('checkPassword').hasError('required')">请确认密码！</div>
+      <div nz-form-explain *ngIf="getFormControl('checkPassword').dirty&&getFormControl('checkPassword').hasError('confirm')">您输入的两个密码不一致！</div>
+    </div>
+  </div>
+
+  <div nz-form-item nz-row>
+    <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+      <label for="captcha" nz-form-item-required>验证码</label>
+    </div>
+    <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" [nzValidateStatus]="getFormControl('captcha')">
+      <div nz-row [nzGutter]="8">
+        <div nz-col [nzSpan]="12">
+          <nz-input style="width: 100%" [nzSize]="'large'" formControlName="captcha" [nzId]="'captcha'"></nz-input>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <button style="width: 100%" class="captchabtn" nz-button [nzType]="'primary'" [nzSize]="'large'" [nzLoading]="isLoadingOne" (click)="getCaptcha($event)">{{time}}</button>
+        </div>
+      </div>
+      <div nz-form-explain *ngIf="getFormControl('captcha').dirty&&getFormControl('captcha').hasError('required')">请输入您收到的验证码！</div>
+    </div>
+  </div>
+
+  <div nz-form-item nz-row style="margin-bottom:8px;">
+    <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="6">
+      <button [disabled]="!validateForm.valid" nz-button [nzSize]="'large'" [nzType]="'primary'" (click)="toAdd()">注册</button>
+    </div>
+  </div>
+  <span style="display:block;padding-bottom: 24px;padding-left:116px;">
+     Or
+    <a (click)="toLand()">登录</a>
+  </span>
+
+</form>

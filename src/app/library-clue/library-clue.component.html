@@ -1,0 +1,251 @@
+<nz-spin [nzSpinning]="_isSpinning">
+<library-top></library-top>
+		  <div class="currentLocation">
+			<div class="mainBox">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>
+            <i class="anticon anticon-home"></i>
+            <a routerLink="/library"><span>首页</span></a>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            <a href=""><span>档案征集</span></a>
+          </nz-breadcrumb-item>
+        </nz-breadcrumb>
+			</div>
+		</div>
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm($event,validateForm.value)">
+		  <div class="showCen">
+			<div class="mainBox">
+				<cite class="cluelogo"></cite>
+				<div class="clueTop">
+					<h4>征集人信息</h4>
+					<table class="tabletxt" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td class="mr38">
+                <div nz-form-item nz-row>
+                  <div nz-form-label nz-col [nzSpan]="7">
+                    <label nz-form-item-required>姓名</label>
+                  </div>
+                  <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('name')" nzHasFeedback>
+                    <nz-input formControlName="name" [nzType]="'text'" [nzPlaceHolder]="'请输入姓名'" [nzSize]="'large'">
+                    </nz-input>
+                    <div nz-form-explain *ngIf="getFormControl('name').dirty&&getFormControl('name').hasError('required')">请输入姓名!</div>
+                  </div>
+                </div>
+              </td>
+							<td>
+                <div nz-form-item nz-row>
+                  <div nz-form-label nz-col [nzSpan]="7">
+                    <label nz-form-item-required>联系电话</label>
+                  </div>
+                  <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('moblie')" nzHasFeedback>
+                    <nz-input formControlName="moblie" [nzType]="'text'" [nzPlaceHolder]="'请输入电话'" [nzSize]="'large'">
+                    </nz-input>
+                    <div nz-form-explain *ngIf="getFormControl('moblie').dirty&&getFormControl('moblie').hasError('required')">请输入电话!</div>
+                    <div nz-form-explain *ngIf="getFormControl('moblie').dirty&&getFormControl('moblie').hasError('confirm')">请输入正确的电话号码！</div>
+                  </div>
+                </div>
+              </td>
+						</tr>
+						<tr>
+							<td class="mr38">
+                <div nz-form-item nz-row>
+                  <div nz-form-label nz-col [nzSpan]="7">
+                    <label nz-form-item-required>邮箱</label>
+                  </div>
+                  <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('email')" nzHasFeedback>
+                    <nz-input formControlName="email" [nzType]="'text'" [nzPlaceHolder]="'请输入邮箱'" [nzSize]="'large'">
+                    </nz-input>
+                    <div nz-form-explain *ngIf="getFormControl('email').dirty&&getFormControl('email').hasError('email')">请输入邮箱!</div>
+                    <div nz-form-explain *ngIf="getFormControl('email').dirty&&getFormControl('email').hasError('required')">请输入邮箱!</div>
+
+                  </div>
+                </div>
+              </td>
+							<td>
+                <div nz-form-item nz-row>
+                  <div nz-form-label nz-col [nzSpan]="7">
+                    <label nz-form-item-required>现居住地址</label>
+                  </div>
+                  <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('address')" nzHasFeedback>
+                    <nz-input formControlName="address" [nzType]="'text'" [nzPlaceHolder]="'请输入地址'" [nzSize]="'large'">
+                    </nz-input>
+                    <div nz-form-explain *ngIf="getFormControl('address').dirty&&getFormControl('address').hasError('required')">请输入地址!</div>
+                  </div>
+                </div>
+              </td>
+						</tr>
+					</table>
+				</div>
+				<div class="clueTop clearfix">
+					<h4>图书信息</h4>
+          <table class="tabletxt" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="mr38">
+                <div nz-form-item nz-row>
+                  <div nz-form-label nz-col [nzSpan]="7">
+                    <label nz-form-item-required>书名</label>
+                  </div>
+                  <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('book')" nzHasFeedback>
+                    <nz-input formControlName="book" [nzType]="'text'" [nzPlaceHolder]="'请输入书名'" [nzSize]="'large'">
+                    </nz-input>
+                    <div nz-form-explain *ngIf="getFormControl('book').dirty&&getFormControl('book').hasError('required')">请输入书名!</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div nz-form-item nz-row>
+                  <div nz-form-label nz-col [nzSpan]="7">
+                    <label nz-form-item-required>作者</label>
+                  </div>
+                  <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('author')" nzHasFeedback>
+                    <nz-input formControlName="author" [nzType]="'text'" [nzPlaceHolder]="'请输入作者'" [nzSize]="'large'">
+                    </nz-input>
+                    <div nz-form-explain *ngIf="getFormControl('author').dirty&&getFormControl('author').hasError('required')">请输入作者!</div>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+            <tr>
+              <td class="mr38">
+                <div nz-form-item nz-row>
+                  <div nz-form-label nz-col [nzSpan]="7">
+                    <label nz-form-item-required>出版城市</label>
+                  </div>
+                  <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('publishcity')" nzHasFeedback>
+                    <nz-cascader
+                      formControlName="publishcity"
+                      [nzSize]="'large'"
+                      [nzOptions]="_options"
+                      [nzPlaceHolder]="'请选择出版城市'">
+                    </nz-cascader>
+                    <div nz-form-explain *ngIf="getFormControl('publishcity').dirty&&getFormControl('publishcity').hasError('required')">请选择出版城市!</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div nz-form-item nz-row>
+                  <div nz-form-label nz-col [nzSpan]="7">
+                    <label nz-form-item-required>出版社</label>
+                  </div>
+                  <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('publish')" nzHasFeedback>
+                    <nz-input formControlName="publish" [nzType]="'text'" [nzPlaceHolder]="'请输入出版社'" [nzSize]="'large'">
+                    </nz-input>
+                    <div nz-form-explain *ngIf="getFormControl('publish').dirty&&getFormControl('publish').hasError('required')">请输入出版社!</div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="mr38">
+                <div nz-form-item nz-row>
+                  <div nz-form-label nz-col [nzSpan]="7">
+                    <label nz-form-item-required>出版日期</label>
+                  </div>
+                  <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('publishtime')" nzHasFeedback>
+                    <nz-datepicker style="width: 100%"  formControlName="publishtime"  [nzPlaceHolder]="'请选择出版日期'" [nzSize]="'large'">
+                    </nz-datepicker>
+                    <div nz-form-explain *ngIf="getFormControl('publishtime').dirty&&getFormControl('publishtime').hasError('required')">请选择出版日期!</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div nz-form-item nz-row>
+                  <div nz-form-label nz-col [nzSpan]="7">
+                    <label nz-form-item-required>ISBN</label>
+                  </div>
+                  <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('isbn')" nzHasFeedback>
+                    <nz-input formControlName="isbn" [nzType]="'text'" [nzPlaceHolder]="'请输入ISBN'" [nzSize]="'large'">
+                    </nz-input>
+                    <div nz-form-explain *ngIf="getFormControl('isbn').dirty&&getFormControl('isbn').hasError('required')">请输入ISBN!</div>
+                    <div nz-form-explain *ngIf="getFormControl('isbn').dirty&&getFormControl('isbn').hasError('confirm')">请输入正确的ISBN!</div>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+            <tr>
+            <td>
+              <div nz-form-item nz-row>
+                <div nz-form-label nz-col [nzSpan]="7">
+                  <label nz-form-item-required>出版编号</label>
+                </div>
+                <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('publishno')" nzHasFeedback>
+                  <nz-input formControlName="publishno" [nzType]="'text'" [nzPlaceHolder]="'请输入出版编号'" [nzSize]="'large'">
+                  </nz-input>
+                  <div nz-form-explain *ngIf="getFormControl('publishno').dirty&&getFormControl('publishno').hasError('required')">请输入出版编号!</div>
+                </div>
+              </div>
+            </td>
+              <td>
+                <div nz-form-item nz-row>
+                  <div nz-form-label nz-col [nzSpan]="7">
+                    <label nz-form-item-required>文献类型</label>
+                  </div>
+                  <div nz-col [nzSpan]="16" nz-form-control [nzValidateStatus]="getFormControl('type')" nzHasFeedback>
+                    <nz-input formControlName="type" [nzType]="'text'" [nzPlaceHolder]="'请输入文献类型'" [nzSize]="'large'">
+                    </nz-input>
+                    <div nz-form-explain *ngIf="getFormControl('type').dirty&&getFormControl('type').hasError('required')">请输入文献类型!</div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" style="padding-left: 20px;">
+                <div nz-form-item nz-row>
+                  <div nz-col [nzSpan]="3" nz-form-label>
+                    <label>上传附件</label>
+                  </div>
+                  <div nz-col [nzSpan]="21" nz-form-control >
+                    <ul class="filegroup">
+                      <li *ngFor="let item of fileList">
+                        <img [src]="item.showurl" alt="">
+                        <nz-tooltip [nzTitle]="item.name" [nzPlacement]="'bottom'">
+                          <p nz-tooltip>{{item.originalname}}</p>
+                        </nz-tooltip>
+                        <div>
+                          <span>
+                            <i class="anticon anticon-eye seeImg" *ngIf="item.preview!='2'" (click) = "toDos(item.preview,item.showurl,item.id,item.actualsize,item.standardsize)"></i>
+                            <i [ngClass]="{'tocenter':item.preview=='2'}" class="anticon anticon-delete uploadimgremove" (click)="remove(item.id)"></i>
+                          </span>
+                        </div>
+                      </li>
+
+                    </ul>
+                    <a style="line-height: 28px" nz-button [nzType]="'primary'" (click)="showModal('文件上传')">上传附件</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+
+          </table>
+        </div>
+				<div class="editBox">
+          <quill-editor
+            [(ngModel)]="innertext"
+            formControlName = "description"
+            (change)="onContentChanged($event)"
+          ></quill-editor>
+				</div>
+        <!--<div [innerHtml]="data"></div>-->
+				<button class="Submit" (click)="upData()">提交</button>
+			</div>
+		</div>
+    </form>
+
+  <library-foot></library-foot>
+  <nz-back-top [nzTarget]="divTarget"></nz-back-top>
+</nz-spin>
+  <nz-modal [nzWidth]="width" [nzVisible]="isVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel($event)">
+    <ng-template #modalTitle>
+      {{names}}
+    </ng-template>
+    <ng-template #modalContent>
+      <iframe *ngIf="names=='文件上传'" style="width: 840px;height: 380px;margin-left: 28px" [src]="src" frameborder="0"></iframe>
+      <div *ngIf="names!='文件上传'" style="width: 420px;display: block;margin: 0 auto;background-color: #999" >
+        <img style="width: 420px;display: block;margin: 0 auto;"  [src]="seeurl" alt="">
+      </div>
+    </ng-template>
+  </nz-modal>

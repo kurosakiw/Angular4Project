@@ -1,0 +1,72 @@
+<nz-spin [nzSpinning]="_isSpinning">
+<archives-top [ifs]="true"></archives-top>
+<div class="currentLocation">
+  <div class="mainBox">
+    <nz-breadcrumb>
+      <nz-breadcrumb-item>
+        <i class="anticon anticon-home"></i>
+        <a routerLink="/archives"><span>数字档案馆</span></a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>
+        <a routerLink="/archives-list"><span>档案列表</span></a>
+      </nz-breadcrumb-item>
+    </nz-breadcrumb>
+  </div>
+</div>
+<div class="showCen">
+  <div class="bannerBox">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="mainBox clearfix">
+    <div class="listBox" style="min-height: 588px">
+      <div class="tip clearfix">
+        <div class="searchList">
+          <label class="shi">
+            <span>筛选</span>
+          </label>
+          <nz-select nzAllowClear [nzPlaceHolder]="'请选择格式'" [nzSize]="default" [(ngModel)]="selectedOption" [nzShowSearch]="true" (ngModelChange)="getLists()">
+            <nz-option *ngFor="let option of searchOptions"
+              [nzLabel]="option.label"
+              [nzValue]="option.value">
+            </nz-option>
+          </nz-select>
+          <nz-input style="width: 200px;" [(ngModel)]="keyword" [nzSize]="large" [nzPlaceHolder]="'请输入关键词'" (keyup.enter)="getLists()"></nz-input>
+          <button nz-button [nzType]="'default'" (click)="getLists()">
+            <i class="anticon anticon-search"></i><span>搜索</span>
+          </button>
+        </div>
+      </div>
+      <div style="width: 100%;height: 30px">
+        <h3>档案列表</h3>
+      </div>
+      <nz-tabset [nzTabPosition]="nzTabPosition" [(nzSelectedIndex)]="SelectedIndex" >
+        <nz-tab *ngFor="let tab of lists"  (nzClick)="_console(tab.id)" >
+          <ng-template #nzTabHeading>
+            {{tab.name}}
+          </ng-template>
+          <div>
+            <nz-table #nzTable [nzDataSource]="listdetail" [nzIsPagination]="false">
+              <tbody nz-tbody>
+              <tr nz-tbody-tr *ngFor="let data of listdetail">
+                <td nz-td><a [routerLink]="['/archives-detail',data.id]">{{data.name}}</a></td>
+              </tr>
+              </tbody>
+            </nz-table>
+          </div>
+        </nz-tab>
+      </nz-tabset>
+      <nz-pagination
+         style="float: right;margin-top: 12px"
+         [nzPageSize]="showCount"
+         [(nzPageIndex)]="pageindex"
+         [nzTotal]="totalPage"
+         (nzPageIndexChange)="getLists()"
+         nzShowQuickJumper nzShowTotal
+      ></nz-pagination>
+
+
+    </div>
+  </div>
+</div>
+  <archives-foot [imgs]="false"></archives-foot>
+</nz-spin>

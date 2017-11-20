@@ -1,0 +1,120 @@
+<nz-spin [nzSpinning]="_isSpinning">
+  <archives-top [ifs]="false"></archives-top>
+  <div class="currentLocation">
+    <div class="mainBox">
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>
+          <i class="anticon anticon-home"></i>
+          <a routerLink="/propaganda"><span>数字宣教馆</span></a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          <a routerLink="/propaganda/propaganda-list/0" routerLinkActive="active-link"><span >远程课堂</span></a>
+        </nz-breadcrumb-item>
+      </nz-breadcrumb>
+    </div>
+  </div>
+  <div class="showwrap">
+    <div class="mainBox">
+      <div class="classTop">
+        <div class="lt">
+          <div class="imgTop">
+            <video [src]="videourl" controls style=" width: 600px;height: 338px;"></video>
+          </div>
+        </div>
+        <div class="rt">
+          <nz-tooltip [nzTitle]="result.title">
+            <h1 nz-tooltip>{{result.title}}</h1>
+          </nz-tooltip>
+          <p class="tit"><span>最近在学{{result.online}}人</span><i>|</i><span>累计人数{{result.views}}人</span><i>|</i><span>发布日期：{{result.updateDate | date:"yyyy-MM-dd"}}</span></p>
+          <p style="font-size: 16px;padding: 12px 0px;display: block;">讲师介绍:</p>
+          <div class="lefts" [ngStyle]="{'background-image':'url('+result.lecturerpicurl+')'}">
+
+          </div>
+          <div class="rights">
+            <p class="teach">讲师：{{result.lecturername}}</p>
+          </div>
+          <p class="wrapTxt">简介：{{result.lecturerdescription}}</p>
+        </div>
+      </div>
+      <div class="classBox" nz-row>
+        <div nz-col [nzSpan]="14">
+          <nz-tabset>
+          <nz-tab *ngFor="let tab of tabs;let i=index">
+            <ng-template #nzTabHeading>
+              {{tab.name}}
+            </ng-template>
+            <div *ngIf="i==0">
+            <div class="txt">
+              <span class="introduce">简<i></i>介:</span>
+              <p>{{result.description}}</p>
+            </div>
+          </div>
+            <div *ngIf="i==1">
+              <nz-collapseset>
+                <nz-collapse
+                  style="box-sizing: border-box"
+                  *ngFor="let panel of chapters;let i = index"
+                  [nzTitle]="panel.sectionname"
+                  [nzActive]="i==0">
+                  <div>
+                    <ul class="videoClass">
+                      <li *ngFor="let item of panel.trifles" (click)="changeAll(item)">
+                        <i class="anticon anticon-play-circle"></i>
+                        <a>
+                          {{item.chaptername}}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </nz-collapse>
+              </nz-collapseset>
+            </div>
+          </nz-tab>
+        </nz-tabset>
+        </div>
+        <div nz-col [nzSpan]="8" [nzOffset]="2" class="rightNew">
+          <div style="overflow: hidden;   border-bottom: 1px solid #d9d9d9;margin-bottom: 16px;">
+            <h1 style="float: left;width: 88px;">附件下载</h1>
+            <span style="color: #ff3600;cursor: pointer;float: right" (click)="downAll()">全部下载</span>
+          </div>
+          <div class="downgroup">
+            <ul>
+              <nz-alert
+                *ngIf="downList.length==0"
+                [nzType]="'warning'"
+                [nzMessage]="'此条目并无附件'"
+                [nzShowIcon]="'true'">
+              </nz-alert>
+              <li *ngIf="downList.length!=0" class="headdown">
+                <span class="left">文件名</span>
+                <span class="right">操作</span>
+                <span class="right">大小</span>
+              </li>
+              <li *ngFor="let key of downList">
+                <nz-tooltip class="left" [nzTitle]="key.originalname" [nzPlacement]="'bottom'">
+                  <a nz-tooltip class="oneline"  style="line-height: 42px" (click)="toSee(key.preview,key.showurl,key.id,key.actualsize,key.standardsize)">{{key.originalname}}</a>
+                </nz-tooltip>
+                <span class="right" nz-button style="margin-top: 6px;padding-top: 6px" (click)="downLoad(key.id)">下载</span>
+                <span class="right">{{key.size}}</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <archives-foot [imgs]="true"></archives-foot>
+
+  <nz-modal [nzWrapClassName]="'vertical-center-modal'" [nzVisible]="isVisible" [nzTitle]="modalTitle" [nzWidth]="'60%'" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel($event)">
+    <ng-template #modalTitle>
+      查看图片
+    </ng-template>
+    <ng-template #modalContent>
+      <img [src] = "thisImg" style="width: 100%;"/>
+    </ng-template>
+    <ng-template #modalFooter>
+    </ng-template>
+  </nz-modal>
+
+</nz-spin>

@@ -1,0 +1,33 @@
+<form style="width: 300px;margin: 24px auto 12px auto;" nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="_submitForm()">
+  <div nz-form-item>
+    <div nz-form-control [nzValidateStatus]="validateForm.controls.userName">
+      <nz-input [(ngModel)]="username" formControlName="userName" [nzPlaceHolder]="'请输入用户名（邮箱/手机号）'" [nzSize]="'large'">
+        <ng-template #prefix>
+          <i class="anticon anticon-user"></i>
+        </ng-template>
+      </nz-input>
+      <div nz-form-explain *ngIf="validateForm.controls.userName.dirty&&validateForm.controls.userName.hasError('required')">请输入您的用户名！</div>
+    </div>
+  </div>
+  <div nz-form-item>
+    <div nz-form-control [nzValidateStatus]="validateForm.controls.password">
+      <nz-input [(ngModel)]="password" formControlName="password" [nzType]="'password'" [nzPlaceHolder]="'请输入密码'" [nzSize]="'large'">
+        <ng-template #prefix>
+          <i class="anticon anticon-lock"></i>
+        </ng-template>
+      </nz-input>
+      <div nz-form-explain *ngIf="validateForm.controls.password.dirty&&validateForm.controls.password.hasError('required')">请输入密码！</div>
+    </div>
+  </div>
+  <div nz-form-item>
+    <div nz-form-control>
+      <label nz-checkbox formControlName="remember">
+        <span>记住帐号密码</span>
+      </label>
+      <a class="login-form-forgot" class="login-form-forgot" (click)="fogot()">忘记密码</a>
+      <button  [disabled]="!validateForm.valid" nz-button class="login-form-button" [nzType]="'primary'" [nzSize]="'large'" (click)="signIn()">登录</button>
+      Or
+      <a (click)="toRegister()">注册</a>
+    </div>
+  </div>
+</form>

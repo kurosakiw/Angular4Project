@@ -1,0 +1,187 @@
+.currentLocation {
+  color: #525252;
+  width: 100%;
+  height: 44px;
+  line-height: 46px;
+  background: #FFFFFF;
+  box-shadow: inset 0 0 1px #d5d4d0;
+  -webkit-box-shadow: inset 0 0 3px #d5d4d0;
+  -moz-box-shadow: inset 0 0 1px #d5d4d0;
+  -ms-box-shadow: inset 0 0 1px #d5d4d0;
+  -o-box-shadow: inset 0 0 1px #d5d4d0;
+}
+
+.currentLocation a {
+  font-size: 14px;
+  color: #525252;
+  height: 45px;
+  display: inline-block;
+}
+
+.currentLocation a.home {
+  background: url(../../assets/images/home.png) left center no-repeat;
+  background-size: 17px;
+  text-indent: 20px;
+}
+
+.currentLocation .mainBox {
+  position: relative;
+}
+
+.currentLocation .mainBox a.return {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url(../../assets/images/return.png) no-repeat left center;
+  padding-left: 20px;
+}
+ul.special li{
+  height: 150px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  border-bottom:1px solid #d2d2d2 ;
+}
+ul.special li:last-child{
+  border-bottom: none;
+}
+ul.special li .dateBox{
+  float: left;
+  width: 90px;
+  height: 119px;
+  background:rgba(5,26,84,.75);
+  color: #fff;
+  text-align: center;
+  padding-top: 30px;
+}
+ul.special li .dateBox p.date{
+  font-size: 30px;
+}
+ul.special li .dateBox p.year{
+  font-size: 16px;
+}
+ul.special li a.imgBox{
+  padding: 0;
+  display: block;
+  width: 154px;
+  height: 119px;
+  overflow: hidden;
+  margin-left: 2px;
+  float: left;
+}
+ul.special li a.imgBox img{
+  width: 154px;
+  height: 119px;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out
+}
+ul.special li a.imgBox:hover img{
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+ul.special li .rightBox{
+  float: left;
+  margin-left: 15px;
+  width: 803px;
+}
+ul.special li .rightBox h3{
+  font-size: 18px;
+  color: #313131;
+  margin-bottom: 2px;
+  font-weight: normal;
+}
+ul.special li .rightBox p{
+  display: block;
+  font-size: 14px;
+  color: #6d6d6d;
+  line-height: 18px;
+  width: 803px;
+  height: 54px;
+  overflow: hidden;
+}
+ul.special li .rightBox a.more{
+  font-size: 12px;
+  color: #313131;
+  border: 1px solid #c6c6c6;
+  padding: 4px 6px;
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+}
+ul.special li .rightBox a.more:hover{
+  background: #051a54;
+  color: #fff;
+}
+
+ul.specialList {
+  margin-top: 9px;
+}
+
+ul.specialList li {
+  margin-bottom: 2px;
+}
+
+ul.specialList li.open .tip {
+  background: #ac9477;
+}
+
+ul.specialList li.open .tip a,
+ul.specialList li.open .tip span.time {
+  color: #fff;
+}
+
+ul.specialList li .tip {
+  background: #fff;
+  padding: 5px 0;
+  width: 604px;
+  padding: 10px 15px;
+  height: 20px;
+  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+}
+
+ul.specialList li .tip a {
+  font-size: 16px;
+  color: #4b4b4b;
+  float: left;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 460px;
+}
+
+ul.specialList li .tip span.time {
+  float: right;
+  font-size: 14px;
+  color: #6b6b6b
+}
+
+.page {
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px 0;
+  background: #fff;
+}
+
+.showwrap {
+  padding-bottom: 150px;
+}
+.showwrap .mainBox {
+  background: #fff;
+  padding: 0 18px;
+  padding-top: 40px;
+}
+

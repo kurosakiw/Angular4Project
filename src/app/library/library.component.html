@@ -1,0 +1,116 @@
+  <nz-modal
+    [nzWidth] = "'500px'"
+    [nzVisible]="isVisible"
+    [nzTitle]="modalTitle"
+    [nzContent]="modalContent"
+    [nzFooter]="modalFooter"
+    (nzOnCancel)="handleCancel()">
+    <ng-template #modalTitle>
+      {{title}}
+    </ng-template>
+    <ng-template #modalContent>
+      <app-regist-compent *ngIf = "key=='1'" [(issucess)]="key" (succeed)="showModal('0','登陆')" ></app-regist-compent>
+      <app-login-compent *ngIf = "key=='0'" [(issucess)]="key" (succeed)="showModal('1','注册')" (landOver)="handleCancel('success')" (fogotpwd)="showModal('2','找回密码')"></app-login-compent>
+      <app-fogot-pwd-component *ngIf = "key=='2'"  [(issucess)]="key" (succeed)="showModal('0','登陆')" ></app-fogot-pwd-component>
+
+
+    </ng-template>
+  </nz-modal>
+  <nz-spin [nzSpinning]="_isSpinning">
+    <div class="wrapTop">
+        <div class="mainBox">
+          <a routerLink="/public"><img class="logo" [src]="picurl+'logo4.png'"></a>
+          <div class="topBtn">
+            <a routerLink="/timeLine" class="timeLine">时间线</a>
+            <a routerLink="/worship" class="worship">网络祭拜</a>
+            <a *ngIf="changeKey==true" class="go" (click)="showModal('0','登陆')">登录</a>
+            <a *ngIf="changeKey==true" class="reg" (click)="showModal('1','注册')">注册</a>
+            <a *ngIf="changeKey==false" routerLink="/admin" class="admin">个人中心</a>
+          </div>
+          <div class="topTxt">
+            <h2>简介：</h2>
+            <p>数字档案馆是一个内容管理系统、集成系统和数字信息长期保存系统的集合。作为以电子文件、档案以及其他信息资源等非结构化数据为主要管理对象的数字档案馆，它不仅仅起到一个数据中心的作用，也不仅仅起到发布利用的作用，而是具有有序处理和集成管理的功能。它的有序处理和管理过程包括收集、创建、确认、转换、存档、管理、发布利用等涵盖文件生命周期管理实践的全过程。集成（integration）含综合、融合、整合成为整体和一体化的意思。就数字档案馆而言，就是将集成管理理论应用于涵盖文件档案信息资源生命周期管理实践的全过程，即在管理思想上以集成理论为指导，在管理行为上以集成机制为核心，在管理视野上突破管理业务流程机构部门间的限制，并从全程管理和最优化管理的层面来对待各种档案信息资源要素。</p>
+          </div>
+        </div>
+      </div>
+    <div class="wrapCen">
+        <div class="searchTop">
+          <div class="mainBox">
+            <div class="searchBtn clearfix">
+              <input [(ngModel)]="keyword" type="text" placeholder="请输入关键词" (keyup.enter)="jumpList()" />
+              <a [routerLink]="['/library-list',{id:'',key:keyword}]" class="btn"></a>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+        <div class="libraryCen">
+          <div class="mainBox clearfix">
+            <div class="newFile library_chosen">
+              <div class="library_title">
+                <h1>特选条目</h1>
+                <a [routerLink]="['/library-list',{id:'0',key:keyword}]"  class="more"></a>
+              </div>
+              <nz-carousel >
+                <div class="imgBox" nz-carousel-content *ngFor="let key of result">
+                  <ul class="cc">
+                    <li *ngFor="let item of key">
+                      <a [routerLink]="['/library-detail',item.id]" [ngStyle]="{'background-image':'url('+item.picurl+')'}">
+                        <img [src]="item.picurl" style="display: none">
+                      </a>
+                      <div class="txt">
+                        <div class="des clearfix">
+                          <h3>{{item.name}}</h3><span>来源：{{item.publish}}</span>
+                        </div>
+                        <p>描述：{{item.description}}</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </nz-carousel>
+            </div>
+            <div class="addBook">
+              <div class="library_title">
+                <h1>新增书籍</h1>
+                <a class="more" [routerLink]="['/library-list',{id:'1',key:keyword}]" ></a>
+              </div>
+              <div class="addCen clearfix">
+                <div class="addbox" *ngFor="let key of toadd;let i = index" [ngClass]="{'add1':i==0, 'add2': i==1,'add3':i==2, 'add4':i==3 }" [routerLink]="['/library-detail',key.id]">
+                  <div class="img" [ngClass]="{'lts':i==0, 'rts': i==1,'rt':i==2, 'lt':i==3}" [ngStyle]="{'background-image':'url('+key.picurl+')'}">
+                    <img [src]="key.picurl">
+                  </div>
+                  <div class="txt" [ngClass]="{'rts':i==0, 'lts': i==1,'lt':i==2, 'rt':i==3}" style="background: #eee;border: #FFFFFF solid 2px;box-sizing: border-box">
+                    <div class="descirbe">
+                      <nz-tooltip [nzTitle]="key.name" [nzPlacement]="'bottom'">
+                        <h2 nz-tooltip>{{key.name}}</h2>
+                      </nz-tooltip>
+                      <p>{{key.author}}著</p>
+                      <p>ISBN:{{key.isbn}}</p>
+                      <span class="time">出版时间：{{key.publishtime | date: 'yyyy-MM-dd'}}</span>
+                    </div>
+                    <a class="more"></a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="special">
+              <div class="library_title">
+                <h1>专题</h1>
+                <a  routerLink="/special-list" class="more"></a>
+              </div>
+              <nz-collapseset [nzAccordion]="true">
+                <nz-collapse *ngFor="let panel of topic;let i = index" [nzTitle]="panel.title" [nzActive]="ifactive(i)">
+                  <p>{{panel.description}}</p>
+                  <a [routerLink]="['/special-show',panel.id]" class="more">查看更多</a>
+                </nz-collapse>
+              </nz-collapseset>
+            </div>
+            <a   routerLink="/library-clue/null" class="Solicitation">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    <library-foot></library-foot>
+    <nz-back-top [nzTarget]="divTarget"></nz-back-top>
+  </nz-spin>
